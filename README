@@ -1,0 +1,6 @@
+This is a collection of useful programs and documents
+
+I try to publish them online, but for spreadsheets it may be more relevant to download the ODS (Open Office Spreadsheet, converting to X-HELL if you like)
+
+JamMan Doc : http://spreadsheets.google.com/pub?key=rAgNM7QCws61fS0CPNF_rig&output=html
+jamman_loops.rb : Ruby program to generate a file structure giving you access to tempos 80-160 directly from the Jamman pedal - after reading the JamMan Doc enough times, you'll see the point of this program.
