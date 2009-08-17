@@ -21,12 +21,16 @@ loop_def =
 </JamManLoopSetup>
 }
 # For loops in this range
-(40..80).each do |bpm|
+puts "Writing loops into ./LOOP*/*.xml"
+
+(30..90).each do |bpm|
   Dir.mkdir(dir_name ="LOOP#{bpm}") rescue nil
   File.open("#{dir_name}/LOOP.XML", "w") do |f|
+    # we divide the ticks in half to double the tempo of each loop relative to its loop number
     ticks = (44100.0 / bpm.to_f)*60 / 2
     f.puts(loop_def % ticks)
   end  
+  puts "Wrote LOOP#{bpm}/LOOP.XML"
 end
 
 #puts loop_def.split("\n").join("\r\n")
