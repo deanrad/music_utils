@@ -27,3 +27,16 @@ degree.name
 
 Key['Bb'][1].name => 'Bb'
 # could use real unicode chars   ♭♮♯
+
+# A Key object as described thusfar has a mode that can't be changed
+Key['Bb'].major? => true
+Key['Bb'].mode   => :ionian
+Key['Bb'].intervals => [:W, :W, :H, :W, :W, :W, :H]
+
+# To get a different mode, index by root AND mode
+am = Key['A', :minor]
+am.major?      => false
+am.mode        => :aeolian
+am.intervals   => [:W, :H, :W, :W, :H, :W, :W]
+am.degrees     => [:A, :B, :C, :D, :E, :F, :G]
+
