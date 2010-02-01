@@ -1,4 +1,5 @@
 --colour
+--debugger
 --format progress
 --loadby mtime
 --reverse
