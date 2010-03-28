@@ -1,8 +1,10 @@
 \version "2.8"
 \include "english.ly"
+printDate= #(strftime "Printed: %m-%d-%Y" (localtime (current-time)))
 \header {
   title = "Ordinary Year"
-  arranger = "Maria A Poulos"
+  composer = "Maria A Poulos"
+  arranger = \markup \tiny { \printDate }
 }
 
 lyricMelody = {
@@ -85,6 +87,6 @@ verse = {
         \hspace #1.0 
         "Outro: (E D7 A E): (guit lead over jam)"
       }
-      \hspace #1.0 % gives the fill-line something to work with
+      \hspace #1.0
   }
 }
