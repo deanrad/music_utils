@@ -7,7 +7,7 @@ printDate= #(strftime "Printed: %m-%d-%Y" (localtime (current-time)))
   arranger = \markup \tiny { \printDate }
 }
 
-lyricMelody = {
+lyricMelodyVerse = {
   \relative c'' {
     b8    b16 b16       r16 b16 b8~   b8    cs8     gs8   a8
   }
@@ -22,9 +22,13 @@ upVerse = \relative c'' {
 
 verse = { 
   \repeat percent 4 { 
-    \lyricMelody 
+    \lyricMelodyVerse 
   }
   \upVerse
+}
+
+chorus = \relative c'' {
+  e8 e4 e8~ e2~   r4. e8 e8 e8 e8 e8   e1~e1
 }
 
 \score {
@@ -32,17 +36,23 @@ verse = {
     \tempo 4 = 116
     \clef "treble"
     \key e \major
-    \chords { e4. a8   r2    r1            r1                r1 
-              e4. a8:m r2    e4. a8:m r2   e4. f8:maj7 r2    e4. r4 f8:maj7 f8:maj7 }
+    \chords {
+              e4. a8   r2    r1            r1                r1 
+              e4. a8:m r2    e4. a8:m r2   e4. f8:maj7 r2    e4. r4 f8:maj7 f4:maj7 
+              d1             a             e                 e
+    }
     \new Voice {
       \set Staff.midiInstrument = #"grand piano" 
       \verse
+      \chorus
     }
-    % force 4 measures per line 
+    % this 'voice' just exists for layout, uncomment it to have
+    % 4 measures per line by uncommenting
     \new Voice {
       s1 * 4 \break
       s1 * 4 \break
     }
+    
   >>
   \layout { }
   \midi {}
@@ -74,18 +84,25 @@ verse = {
         "And i can't contain myself / because i just need to scream"
 	"Its all the seeing hurting me / and makin me flail about"
         "The skippin of my heart / While i break apart"
-	"All thoyse mirrors..."
+	"All these mirrors..."
         \hspace #1.0 
-        "Ch: This ways not .... An ordinary year... (4x)"
+        "Ch (D A E E): This was not .... An ordinary year... (4x)"
+    }
+    \column {
         \hspace #1.0 
-        "Br: Now its gotten quiet / I feel my thoughts tellin me"
+        \italic{ "Quiet:" }
+        "Now its gotten quiet / I feel my thoughts tellin me"
 	"That its ok to run away / And try and figure these things out"
         "I feel like I've been through the earth / And born into the u-ni-ve-erse..."
 	"That's how it got so cle-ar..."
         \hspace #1.0 
+        \italic { "Building:" }
         "Ch (Em D7 E E): This is not .... An ordinary year... (4x)"
         \hspace #1.0 
-        "Outro: (E D7 A E): (guit lead over jam)"
+        \italic{ "Climax!" }
+        " (E D7 A E): 4x (guitar leads over jam)"
+        \hspace #1.0
+	    \italic { "Ritard. on final rep, fading out last note" }
       }
       \hspace #1.0
   }
