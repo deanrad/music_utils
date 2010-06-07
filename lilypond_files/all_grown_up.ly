@@ -10,10 +10,10 @@
 myChords = \chordmode {  
      % verse 
      \mark \markup{ \circle "V" }
-	 d2.      g      d2.
-	 e:m      a4.:sus4 a4. 
-	 d2.      d4. b4.:m   
-	 cis2.      fis:m   fis:m    a:sus4 a \break
+	 d2.          g        d2.      e:m
+	 a4.:sus4 a4. 
+	 d2.          d4. b4.:m   
+	 cis2.:m      fis:m   fis:m    a:sus4 a \break
 	 % chorus
      \mark \markup{ \circle "C" }
 	 d2.  a    g  d
@@ -39,6 +39,7 @@ myChords = \chordmode {
     % Chord chart so that banjar can play the song in C, a step
     % below the recorded version.
     % Use \transpose d' c' to emit a guitar part for playing in C
+    % Use \transpose d' f to emit a banjar part for playing in C
     \new ChordNames { 
       \set chordChanges = ##t
       \transpose d' f { \myChords } 
