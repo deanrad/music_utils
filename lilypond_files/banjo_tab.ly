@@ -30,7 +30,7 @@ lyricpart = \lyricmode {
   Ca- na- da      
 }
 
-\new Score {
+\score {
 % We display the chordpart simultaneously with, and on top of, the tab
 % using the << and >> markers
 <<
@@ -51,10 +51,11 @@ lyricpart = \lyricmode {
 % We also display the music (and chords) on a normal staff
 % We start it in a new Score to indicate the two staves are not 
 % related (like a treble/bass pair for piano)
-\new Score {
+\score {
 <<
   \chordpart
   \new Staff {
+    \set Staff.midiInstrument = #"banjo"
     \key g \major
     \clef "treble_8"
     <<

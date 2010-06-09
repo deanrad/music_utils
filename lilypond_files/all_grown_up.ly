@@ -7,31 +7,35 @@
 }
 
 % the chords to the song, written in the key of the recording (D)
-myChords = \chordmode {  
-     % verse 
-     \mark \markup{ \circle "V" }
+
+verseChords =\chordmode {  
 	 d2.          g        d2.      e:m
 	 a4.:sus4 a4. 
 	 d2.          d4. b4.:m   
-	 cis2.:m      fis:m   fis:m    a:sus4 a \break
-	 % chorus
-     \mark \markup{ \circle "C" }
+	 cis2.:m      fis:m   fis:m    a a4.:sus4 a4. \break
+}
+chorusChords = \chordmode {
 	 d2.  a    g  d
 	 d    fis  g  g:m       
 	 d    fis  g  e:m  e:m  \break
-	 % bridge
-     \mark \markup{ \circle "Br" }  
+}
+bridgeChords = \chordmode {
 	 b:m  c   d   c   c
 	 b:m  d  g  e:m  
 	 e:m  c  a4.:sus4 a4.  \break
-	 % outro
-     \mark \markup{ \circle "O" }  
+}
+outroChords = \chordmode {
 	 d2.        a4. g4.      d2.
 	 a4. g4.    d2.
 	 e:m \repeat percent 3{ c e:m }
- 	 % 
- }
+}
 
+myChordChart = { 
+   \mark \markup{ \circle "V" } \verseChords  \break
+   \mark \markup{ \circle "C" } \chorusChords \break
+   \mark \markup{ \circle "Br"} \bridgeChords \break
+   \mark \markup{ \circle "O" } \outroChords  \break
+}
 
 %% The primary score first - the midi-only score follows it
 \score {
@@ -42,7 +46,7 @@ myChords = \chordmode {
     % Use \transpose d' f to emit a banjar part for playing in C
     \new ChordNames { 
       \set chordChanges = ##t
-      \transpose d' f { \myChords } 
+      \transpose d' f { \myChordChart } 
     }
     \new Staff \with {
       %% Uncomment the following to automatically tie notes
@@ -51,7 +55,7 @@ myChords = \chordmode {
     }{ 
       \time 6/8
       %\set beatLength = #(ly:make-moment 1 4)  % beam quarter notes
-      \transpose d' c'{ \key d \major \myChords }
+      \transpose d' c'{ \key d \major \myChordChart }
     }
   >>
   \layout{}
@@ -71,6 +75,23 @@ myChords = \chordmode {
 	\italic " See http://www.elviscostello.info/guitar/mlar.html#all_grown_up"
   }
 }
+% Experimental repeat chords section
+\score {
+  \new ChordNames \with {
+    \override BarLine #'bar-size = #4
+    \consists Bar_engraver
+  }
+  \chordmode {     
+    \repeat volta 2 {
+	    a1 b1 c1
+     } 
+     \alternative { 
+       {d c e}
+       {e}
+      }
+     % \alternative { f1 e1 g1 }
+  } % chordmode
+}
 
 %% The midi-only score, in order to unfold repeats
 \score {
@@ -82,7 +103,7 @@ myChords = \chordmode {
     \unfoldRepeats
     
     % lets hear it a step below the recording which was in D
-    \transpose d' c' { \myChords }
+    \transpose d' c' { \myChordChart }
   }
   \midi{}
 }

@@ -37,20 +37,14 @@ myStrumTips = {s8 \downbow s8. \downbow s16 \upbow s16 \downbow s16 \upbow }
   \layout{}
 }
 
-\smaller \markup{
- \column { \wordwrap-string #"Chorus:
- 
- Walkin' around in the snow, got nowhere to go
- 
- My feet are gettin' cold, my soul is old and gray
- 
- Been wanderin' too long, it ain't right and it ain't wrong 
- 
- These nights last too long, and I haven't slept for days
- 
- My heart is a-wanderin', has no place to stay.." 
- }
- }
+\smaller 
+ \markup{ \column { 
+ "Chorus:"
+ "Walkin' around in the snow, got nowhere to go"
+ "My feet are gettin' cold, my soul is old and gray"
+ "Been wanderin' too long, it ain't right and it ain't wrong"
+ "These nights last too long, and I haven't slept for days"
+ "My heart is a-wanderin', has no place to stay.."  } } % end of chorus
  
  \markup {
  \column {
