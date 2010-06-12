@@ -3,16 +3,18 @@
 \header{
   title = "All Grown Up"
   subtitle = "Elvis Costello" 
-  subsubtitle = "(in C, chords transposed for banjar)"
+  subsubtitle = "in C, chords notated for banjar"
 }
 
 % the chords to the song, written in the key of the recording (D)
-
-verseChords =\chordmode {  
-	 d2.          g        d2.      e:m
-	 a4.:sus4 a4. 
-	 d2.          d4. b4.:m   
-	 cis2.:m      fis:m   fis:m    a a4.:sus4 a4. \break
+introChords =  \chordmode {
+     f4.  c4.  g4.  c4.  
+     f4.  a4.  g4.  a4.
+}
+verseChords = \chordmode {  
+	 d2.        g           d2.       e:m         a4.:sus4 a4. 
+	 d2.        d4. b4.:m   cis2.:m   
+	 fis:m      fis:m       a         a4.:sus4 a4. \break
 }
 chorusChords = \chordmode {
 	 d2.  a    g  d
@@ -25,12 +27,13 @@ bridgeChords = \chordmode {
 	 e:m  c  a4.:sus4 a4.  \break
 }
 outroChords = \chordmode {
-	 d2.        a4. g4.      d2.
-	 a4. g4.    d2.
-	 e:m \repeat percent 3{ c e:m }
+	 d2.       a4. g4.      d2.
+	 a4. g4.   d2.
+	 \repeat percent 2{ e:m c }
 }
 
 myChordChart = { 
+   \mark \markup{ \circle "I" } \introChords  \break
    \mark \markup{ \circle "V" } \verseChords  \break
    \mark \markup{ \circle "C" } \chorusChords \break
    \mark \markup{ \circle "Br"} \bridgeChords \break
@@ -64,18 +67,18 @@ myChordChart = {
 \markup{
  \column {
  	"Arrgmt:"
-	"  Intro Riff (not notated)"
+	"  Intro Riff"
 	"  V1/Chorus" 
 	"  V2/Chorus" 
 	"  Bridge"
 	"  Chorus"
 	"  V3/Chorus"
-	"  Chorus"
-	"  Outro"
+	"  Intro Riff (fade)"
 	\italic " See http://www.elviscostello.info/guitar/mlar.html#all_grown_up"
   }
 }
-% Experimental repeat chords section
+
+% Draws the arrangement of the song using repeats
 \score {
   \new ChordNames \with {
     \override BarLine #'bar-size = #4
@@ -87,10 +90,9 @@ myChordChart = {
      } 
      \alternative { 
        {d c e}
-       {e}
+       {e a}
       }
-     % \alternative { f1 e1 g1 }
-  } % chordmode
+  }
 }
 
 %% The midi-only score, in order to unfold repeats
