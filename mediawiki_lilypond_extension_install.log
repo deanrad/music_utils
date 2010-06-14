@@ -1,0 +1,2832 @@
+Last login: Wed Jun  2 01:12:36 on ttys000
+hihat:~ dean$ cd src/
+hihat:src dean$ cd music_utils/lilypond_files/
+hihat:lilypond_files dean$ ls walk*.mi
+ls: walk*.mi: No such file or directory
+hihat:lilypond_files dean$ ls walk*.mi*
+walkin_around_in_the_snow.mid	walkin_around_in_the_snow.midi
+hihat:lilypond_files dean$ ls -l walk*.mi*
+-rw-r--r--  1 dean  staff  395 Jun  2 00:44 walkin_around_in_the_snow.mid
+-rw-r--r--  1 dean  staff  487 May 31 22:15 walkin_around_in_the_snow.midi
+hihat:lilypond_files dean$ date
+Fri Jun  4 08:43:54 CDT 2010
+hihat:lilypond_files dean$ ls -l walk*.mi*
+-rw-r--r--  1 dean  staff  395 Jun  4 08:44 walkin_around_in_the_snow.mid
+-rw-r--r--  1 dean  staff  487 May 31 22:15 walkin_around_in_the_snow.midi
+hihat:lilypond_files dean$ cd ../ch
+-bash: cd: ../ch: No such file or directory
+hihat:lilypond_files dean$ cd ../../chess_on_rails/
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-06-07 17:31:15) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 80ms (View: 76, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 17:31:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 11ms (View: 9, DB: 1) | 200 OK [http://localhost/sign_in]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 17:31:33) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"OpvyYkfz2U/RTQM6kGHNRN/v0meJVr087jtf9PL/tuU=", "controller"=>"clearance/sessions"}
+  User Load (17.5ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+Rendering template within layouts/application
+Rendering sessions/new (unauthorized)
+Completed in 36ms (View: 10, DB: 18) | 401 Unauthorized [http://localhost/session]
+^CExiting
+hihat:chess_on_rails dean$ rake spec:fixtures:load
+(in /Users/dean/src/chess_on_rails)
+rake aborted!
+Don't know how to build task 'spec:fixtures:load'
+
+(See full trace by running task with --trace)
+hihat:chess_on_rails dean$ rake -T fix
+(in /Users/dean/src/chess_on_rails)
+rake db:fixtures:identify   # Search for a fixture given a LABEL or ID.
+rake db:fixtures:load       # Load fixtures into the current environment's ...
+rake notes:fixme            # Enumerate all FIXME annotations
+rake spec:db:fixtures:load  # Load fixtures (from spec/fixtures) into the c...
+hihat:chess_on_rails dean$ rake spec:db:fixtures:load
+(in /Users/dean/src/chess_on_rails)
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 17:32:41) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"OpvyYkfz2U/RTQM6kGHNRN/v0meJVr087jtf9PL/tuU=", "controller"=>"clearance/sessions"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+  User Update (0.8ms)   UPDATE "users" SET "updated_at" = '2010-06-07 17:32:41', "remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81' WHERE "id" = 1
+Redirected to http://localhost:3000/
+Completed in 25ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-06-07 17:32:41) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Completed in 13ms (View: 9, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2010-06-07 17:32:44) [GET]
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/index
+  Match Load (1.6ms)   SELECT "matches".* FROM "matches" INNER JOIN "gameplays" ON "matches".id = "gameplays".match_id WHERE (("gameplays".player_id = 1)) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1072323671) ORDER BY move_num
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 1072323671) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1072323671) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 757985484) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 757985484) 
+  Gameplay Load (0.5ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 757985484) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (2.3ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 593674323) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 593674323) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 593674323) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.6ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 149029830) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 149029830) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 149029830) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1007513128) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1007513128) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  Move Load (1.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 29053888) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 29053888) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 29053888) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (5.8ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 96692939) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 96692939) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 96692939) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 773167411) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 773167411) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 773167411) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.8ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 464198754) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 464198754) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 464198754) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1033917353) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+Completed in 96ms (View: 66, DB: 26) | 200 OK [http://localhost/matches]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:32:52) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.4ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" IN (1,2)) 
+  Move Load (0.2ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+Rendered matches/_board_status (0.7ms)
+Rendered matches/_board (179.6ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_graveyard (2.0ms)
+Rendered matches/_play_tabs (1.7ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 768005954) 
+Rendered chats/_chats (13.3ms)
+Rendered matches/_move_maker (5.9ms)
+Rendered matches/_move_list (2.3ms)
+Completed in 226ms (View: 220, DB: 3) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:33:19) [GET]
+  Parameters: {"id"=>"768005954"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/matches/768005954]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 17:33:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 9ms (View: 8, DB: 140) | 200 OK [http://localhost/session/new]
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.6ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."id" = 2) 
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:35:27) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.4ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.2ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+Rendered matches/_board_status (0.2ms)
+Rendered matches/_board (177.5ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (3.5ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 200ms (View: 194, DB: 19) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:40:00) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.4ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (3.9ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 33ms (View: 29, DB: 1) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:40:03) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.8ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.7ms)
+Rendered matches/_move_maker (4.1ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 32ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:41:05) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.5ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (3.8ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 101ms (View: 96, DB: 2) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:41:27) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.7ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.7ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 34ms (View: 27, DB: 1) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:41:33) [GET]
+  Parameters: {"id"=>"689068207", "s"=>nil}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.4ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.9ms)
+Rendered matches/_move_maker (3.6ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 32ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/689068207?s]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 17:44:28) [GET]
+  Parameters: {"id"=>"689068207", "s"=>nil}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.3ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (187.4ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_graveyard (2.1ms)
+Rendered matches/_play_tabs (1.8ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.4ms)
+Rendered matches/_move_maker (5.7ms)
+Rendered matches/_move_list (2.3ms)
+Completed in 258ms (View: 236, DB: 3) | 200 OK [http://localhost/matches/689068207?s]
+^[
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:23:00) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "controller"=>"clearance/sessions"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+Rendering template within layouts/application
+Rendering sessions/new (unauthorized)
+Completed in 12ms (View: 7, DB: 1) | 401 Unauthorized [http://localhost/session]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:23:19) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "controller"=>"clearance/sessions"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+  User Update (0.4ms)   UPDATE "users" SET "updated_at" = '2010-06-07 20:23:19', "remember_token" = '4f41765593136786ff5c5770e4763aa51cce7fc8' WHERE "id" = 1
+Redirected to http://localhost:3000/matches/768005954
+Completed in 9ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:23:19) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '4f41765593136786ff5c5770e4763aa51cce7fc8') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.4ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" IN (1,2)) 
+  Move Load (0.2ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+Rendered matches/_board_status (0.2ms)
+Rendered matches/_board (174.1ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 768005954) 
+Rendered chats/_chats (3.5ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 196ms (View: 191, DB: 3) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing MatchesController#create_move (for 127.0.0.1 at 2010-06-07 20:26:27) [POST]
+  Parameters: {"commit"=>"Submit Move", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "id"=>"768005954", "move"=>{"from_coord"=>"d2", "notation"=>"", "to_coord"=>"d4"}}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '4f41765593136786ff5c5770e4763aa51cce7fc8') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE (match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Move Create (0.3ms)   INSERT INTO "moves" ("created_at", "from_coord", "notation", "match_id", "captured_piece_coord", "updated_at", "castling_rook_to_coord", "move_num", "promotion_choice", "to_coord", "castling_rook_from_coord") VALUES('2010-06-07 20:26:27', 'd2', 'd4', 768005954, NULL, '2010-06-07 20:26:27', NULL, 1, NULL, 'd4', NULL)
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  CACHE (0.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+
+ActionController::RoutingError (match_url failed to generate from {:action=>"show", :controller=>"matches", :id=>nil}, expected: {:action=>"show", :controller=>"matches"}, diff: {:id=>nil}):
+  (eval):16:in `match_path'
+  app/controllers/matches_controller.rb:92:in `create_move'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:26:32) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '4f41765593136786ff5c5770e4763aa51cce7fc8') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (17.1ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 33ms (View: 29, DB: 4) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:26:43) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '4f41765593136786ff5c5770e4763aa51cce7fc8') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.9ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (3.9ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 33ms (View: 28, DB: 2) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:27:40) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "controller"=>"clearance/sessions"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+Rendering template within layouts/application
+Rendering sessions/new (unauthorized)
+Completed in 9ms (View: 6, DB: 1) | 401 Unauthorized [http://localhost/session]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 20:27:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 7, DB: 1) | 200 OK [http://localhost/session/new]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:27:47) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "controller"=>"clearance/sessions"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+  User Update (0.3ms)   UPDATE "users" SET "updated_at" = '2010-06-07 20:27:47', "remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2' WHERE "id" = 1
+Redirected to http://localhost:3000/
+Completed in 7ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2010-06-07 20:27:47) [GET]
+Rendering template within layouts/application
+Rendering welcome/index
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Completed in 9ms (View: 6, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2010-06-07 20:27:49) [GET]
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/index
+  Match Load (1.5ms)   SELECT "matches".* FROM "matches" INNER JOIN "gameplays" ON "matches".id = "gameplays".match_id WHERE (("gameplays".player_id = 1)) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1072323671) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 1072323671) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1072323671) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 757985484) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 757985484) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 757985484) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (1.9ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 593674323) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 593674323) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 593674323) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 149029830) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 149029830) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 149029830) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1007513128) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1007513128) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  Move Load (1.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 29053888) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 29053888) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 29053888) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (5.7ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 96692939) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 96692939) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 96692939) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 773167411) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 773167411) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 773167411) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.8ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 464198754) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 464198754) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 464198754) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1033917353) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+Completed in 152ms (View: 124, DB: 25) | 200 OK [http://localhost/matches]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:27:51) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.6ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.9ms)
+Rendered matches/_move_maker (4.0ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 33ms (View: 29, DB: 2) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#index (for 127.0.0.1 at 2010-06-07 20:27:52) [GET]
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/index
+  Match Load (1.6ms)   SELECT "matches".* FROM "matches" INNER JOIN "gameplays" ON "matches".id = "gameplays".match_id WHERE (("gameplays".player_id = 1)) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1072323671) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 1072323671) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1072323671) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 757985484) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 757985484) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 757985484) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (1.9ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 593674323) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 593674323) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 593674323) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (1.3ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 149029830) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 149029830) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 149029830) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 1007513128) ORDER BY move_num
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1007513128) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  Move Load (1.1ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 29053888) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 29053888) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 29053888) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (5.9ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 96692939) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 96692939) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 96692939) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 773167411) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 773167411) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 773167411) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.8ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 464198754) ORDER BY move_num
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 464198754) 
+  Gameplay Load (0.4ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 464198754) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 3) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Gameplay Load (0.5ms)   SELECT * FROM "gameplays" WHERE ("gameplays".match_id = 1033917353) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 2) 
+Completed in 81ms (View: 52, DB: 25) | 200 OK [http://localhost/matches]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:27:54) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.0ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (77.5ms)
+Rendered matches/_move_maker (4.1ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 107ms (View: 103, DB: 1) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 20:29:26) [GET]
+
+ActionController::RoutingError (No route matches "/magellan" with {:method=>:get}):
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 20:29:33) [GET]
+
+ActionController::RoutingError (No route matches "/magellan/index" with {:method=>:get}):
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:32:47) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.9ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_graveyard (0.5ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 33ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/768005954]
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Update (0.3ms)   UPDATE "moves" SET move_num = (move_num - 1) WHERE (match_id = 768005954 AND move_num > 1) 
+  Move Update (0.1ms)   UPDATE "moves" SET "updated_at" = '2010-06-07 20:34:52', "move_num" = NULL WHERE "id" = 1052509141
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.2ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Destroy (0.1ms)   DELETE FROM "moves" WHERE "id" = 1052509141
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:34:57) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.1ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.7ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 33ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:35:00) [GET]
+  Parameters: {"id"=>"768005954"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.7ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.7ms)
+Rendered matches/_move_maker (3.7ms)
+Rendered matches/_move_list (0.4ms)
+Completed in 32ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/768005954]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:35:05) [GET]
+  Parameters: {"sfj"=>nil, "id"=>"768005954"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.4ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_graveyard (0.4ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.9ms)
+Rendered matches/_move_maker (3.8ms)
+Rendered matches/_move_list (0.3ms)
+Completed in 34ms (View: 29, DB: 1) | 200 OK [http://localhost/matches/768005954?sfj]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:35:49) [GET]
+  Parameters: {"sfj"=>nil, "id"=>"768005954"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 768005954) 
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" IN (1,2)) 
+  Move Load (0.3ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (178.5ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_graveyard (2.0ms)
+Rendered matches/_play_tabs (1.7ms)
+  Chat Load (0.3ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 768005954) 
+Rendered chats/_chats (14.0ms)
+Rendered matches/_move_maker (5.6ms)
+Rendered matches/_move_list (2.3ms)
+Completed in 249ms (View: 226, DB: 3) | 200 OK [http://localhost/matches/768005954?sfj]
+
+
+Processing MatchesController#create_move (for 127.0.0.1 at 2010-06-07 20:35:57) [POST]
+  Parameters: {"commit"=>"Submit Move", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "id"=>"768005954", "move"=>{"from_coord"=>"d2", "notation"=>"", "to_coord"=>"d4"}}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE (match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Move Create (0.4ms)   INSERT INTO "moves" ("created_at", "from_coord", "notation", "match_id", "captured_piece_coord", "updated_at", "castling_rook_to_coord", "move_num", "promotion_choice", "to_coord", "castling_rook_from_coord") VALUES('2010-06-07 20:35:57', 'd2', 'd4', 768005954, NULL, '2010-06-07 20:35:57', NULL, 1, NULL, 'd4', NULL)
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  CACHE (0.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+
+ActionController::RoutingError (match_url failed to generate from {:action=>"show", :controller=>"matches", :id=>nil}, expected: {:action=>"show", :controller=>"matches"}, diff: {:id=>nil}):
+  (eval):16:in `match_path'
+  app/controllers/matches_controller.rb:92:in `create_move'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+^[[A  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Update (0.4ms)   UPDATE "moves" SET move_num = (move_num - 1) WHERE (match_id = 768005954 AND move_num > 1) 
+  Move Update (0.1ms)   UPDATE "moves" SET "updated_at" = '2010-06-07 20:39:31', "move_num" = NULL WHERE "id" = 1052509142
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+  Match Load (0.2ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Destroy (0.1ms)   DELETE FROM "moves" WHERE "id" = 1052509142
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:39:36) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.3ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 3ms (DB: 3) | 302 Found [http://localhost/matches/689068207]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 20:39:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 11ms (View: 8, DB: 1) | 200 OK [http://localhost/session/new]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:39:40) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.3ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '398713e7d44da06b387ae4608c217c1e685d9a81') LIMIT 1
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/matches/689068207]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 20:39:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/session/new]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:39:47) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"OpvyYkfz2U/RTQM6kGHNRN/v0meJVr087jtf9PL/tuU=", "controller"=>"clearance/sessions"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+  User Update (0.6ms)   UPDATE "users" SET "updated_at" = '2010-06-07 20:39:47', "remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9' WHERE "id" = 1
+Redirected to http://localhost:3000/matches/689068207
+Completed in 13ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:39:47) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.4ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.3ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+Rendered matches/_board_status (0.2ms)
+Rendered matches/_board (134.9ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_graveyard (0.5ms)
+Rendered matches/_play_tabs (0.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (3.6ms)
+Rendered matches/_move_maker (3.8ms)
+Rendered matches/_move_list (0.2ms)
+Completed in 229ms (View: 223, DB: 3) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#create_move (for 127.0.0.1 at 2010-06-07 20:39:52) [POST]
+  Parameters: {"commit"=>"Submit Move", "authenticity_token"=>"OpvyYkfz2U/RTQM6kGHNRN/v0meJVr087jtf9PL/tuU=", "id"=>"689068207", "move"=>{"from_coord"=>"d2", "notation"=>"", "to_coord"=>"d4"}}
+  User Load (0.4ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+  Move Load (0.3ms)   SELECT * FROM "moves" WHERE (match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  Move Create (0.4ms)   INSERT INTO "moves" ("created_at", "from_coord", "notation", "match_id", "captured_piece_coord", "updated_at", "castling_rook_to_coord", "move_num", "promotion_choice", "to_coord", "castling_rook_from_coord") VALUES('2010-06-07 20:39:52', 'd2', 'd4', 689068207, NULL, '2010-06-07 20:39:52', NULL, 1, NULL, 'd4', NULL)
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Move Load (0.4ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+
+ActionController::RoutingError (match_url failed to generate from {:action=>"show", :controller=>"matches", :id=>nil}, expected: {:action=>"show", :controller=>"matches"}, diff: {:id=>nil}):
+  (eval):16:in `match_path'
+  app/controllers/matches_controller.rb:92:in `create_move'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+  haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendering rescues/layout (not_found)
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:41:21) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (180.6ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.0ms)
+Rendered matches/_move_maker (5.8ms)
+Rendered matches/_move_list (2.5ms)
+Rendered matches/_graveyard (1.9ms)
+Completed in 255ms (View: 233, DB: 3) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:41:46) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (181.9ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.5ms)
+Rendered matches/_move_maker (5.9ms)
+Rendered matches/_move_list (2.6ms)
+Rendered matches/_graveyard (2.0ms)
+Completed in 259ms (View: 237, DB: 3) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:45:24) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (177.5ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.0ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.2ms)
+
+ActionView::TemplateError (create_move_url failed to generate from {:action=>"create_move", :controller=>"matches"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["matches", :match_id, "moves"] - are they all satisfied?) on line #2 of app/views/matches/_move_maker.html.erb:
+1: 
+2: <% form_for :move, :html => {:id => 'new_move_form'}, :url => {:action => create_move_path}  do |f| %>
+3:     Notation: <%= f.text_field :notation, :title => 'Enter a single move, such as Nc3' %> or... <br/>
+4:     From: <%= f.text_field :from_coord, :maxlength => '2' %> and
+5:     To: <%= f.text_field :to_coord, :maxlength => '2' %>
+
+    (eval):20:in `create_move_path'
+    app/views/matches/_move_maker.html.erb:2
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.4) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/matches/show.html.haml:19:in `_run_haml_app47views47matches47show46html46haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (171.4ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:45:57) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (177.8ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.2ms)
+Rendered matches/_move_maker (5.9ms)
+Rendered matches/_move_list (2.5ms)
+Rendered matches/_graveyard (1.9ms)
+Completed in 253ms (View: 231, DB: 3) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:48:35) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.7ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (190.5ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.0ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.0ms)
+Rendered matches/_move_maker (5.7ms)
+Rendered matches/_move_list (2.7ms)
+Rendered matches/_graveyard (2.0ms)
+Completed in 266ms (View: 243, DB: 3) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:49:24) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (178.6ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.2ms)
+ERROR: compiling _run_erb_app47views47matches47_move_maker46html46erb_locals_move_maker_object RAISED compile error
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:3: syntax error, unexpected tSTRING_BEG, expecting kDO or '{' or '('
+...tches/#{@match.id/create_move"  do |f| ; @output_buffer.conc...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:3: syntax error, unexpected $undefined, expecting '}'
+...|f| ; @output_buffer.concat "\n    Notation: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:4: syntax error, unexpected tDOT3
+... @output_buffer.concat " or... <br/>\n    From: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:5: syntax error, unexpected $undefined
+...; @output_buffer.concat " and\n    To: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:6: syntax error, unexpected $undefined, expecting '}'
+...o_s); @output_buffer.concat "\n\n    <br/>\n\n    "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:6: syntax error, unexpected '>'
+...t_buffer.concat "\n\n    <br/>\n\n    "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected tCONSTANT, expecting '}'
+...er.concat(( submit_tag "Submit Move", :id => 'move_submit_bt...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected $undefined, expecting '}'
+...o_s); @output_buffer.concat "\n    <input type=\"button\" va...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...ffer.concat "\n    <input type=\"button\" value=\"Cancel\" o...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:12: syntax error, unexpected kEND, expecting '}'
+;  end ; @output_buffer.concat "\n\n"
+      ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:30: syntax error, unexpected kENSURE, expecting '}'
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:32: syntax error, unexpected kEND, expecting '}'
+Function body:           def _run_erb_app47views47matches47_move_maker46html46erb_locals_move_maker_object(local_assigns)
+            old_output_buffer = output_buffer;object = local_assigns[:object];move_maker = local_assigns[:move_maker];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\n"
+;  form_for :move, :html => {:id => 'new_move_form'}, 
+                                :url => "/matches/#{@match.id/create_move"  do |f| ; @output_buffer.concat "\n    Notation: "
+; @output_buffer.concat(( f.text_field :notation, :title => 'Enter a single move, such as Nc3' ).to_s); @output_buffer.concat " or... <br/>\n    From: "
+; @output_buffer.concat(( f.text_field :from_coord, :maxlength => '2' ).to_s); @output_buffer.concat " and\n    To: "
+; @output_buffer.concat(( f.text_field :to_coord, :maxlength => '2' ).to_s); @output_buffer.concat "\n\n    <br/>\n\n    "
+
+
+
+; @output_buffer.concat(( submit_tag "Submit Move", :id => 'move_submit_btn', :disabled => !your_turn ).to_s); @output_buffer.concat "\n    <input type=\"button\" value=\"Cancel\" onclick=\"document.location.reload()\"/>\n"
+
+;  end ; @output_buffer.concat "\n\n"
+
+;  remote_form_for(gameplay, :html => {:id => 'gameplay_editor'}) do |f| ; @output_buffer.concat "\n  Set Move Queue:\n  "
+
+; @output_buffer.concat(( f.text_field :move_queue, :style => 'width: 80px' ).to_s); @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.submit "Save" ).to_s); @output_buffer.concat "\n"
+;  end ; @output_buffer.concat "\n\n<div id=\"move_error\">\n  "
+
+
+; @output_buffer.concat(( flash[:move_error] ).to_s); @output_buffer.concat "\n</div>\n\n"
+
+
+;  content_for :autoexec_javascripts do ; @output_buffer.concat "\n  $('move_notation').focus();\n"
+
+;  end ; @output_buffer.concat "\n\n\n"
+
+
+; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:32:in `compile!'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/haml/helpers/action_view_mods.rb:11:in `render'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/haml/helpers.rb:90:in `non_haml'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/haml/helpers/action_view_mods.rb:11:in `render'
+/Users/dean/src/chess_on_rails/app/views/matches/show.html.haml:19:in `_run_haml_app47views47matches47show46html46haml'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render_without_haml'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/haml/helpers/action_view_mods.rb:13:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/sass/plugin/rack.rb:41:in `call'
+/Library/Ruby/Gems/1.8/gems/haml-3.0.4/lib/sass/plugin/rack.rb:41:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/abstract_store.rb:122:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:106:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:3: syntax error, unexpected tSTRING_BEG, expecting kDO or '{' or '('
+...tches/#{@match.id/create_move"  do |f| ; @output_buffer.conc...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:3: syntax error, unexpected $undefined, expecting '}'
+...|f| ; @output_buffer.concat "\n    Notation: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:4: syntax error, unexpected tDOT3
+... @output_buffer.concat " or... <br/>\n    From: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:5: syntax error, unexpected $undefined
+...; @output_buffer.concat " and\n    To: "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:6: syntax error, unexpected $undefined, expecting '}'
+...o_s); @output_buffer.concat "\n\n    <br/>\n\n    "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:6: syntax error, unexpected '>'
+...t_buffer.concat "\n\n    <br/>\n\n    "
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected tCONSTANT, expecting '}'
+...er.concat(( submit_tag "Submit Move", :id => 'move_submit_bt...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected $undefined, expecting '}'
+...o_s); @output_buffer.concat "\n    <input type=\"button\" va...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+...ffer.concat "\n    <input type=\"button\" value=\"Cancel\" o...
+                              ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:12: syntax error, unexpected kEND, expecting '}'
+;  end ; @output_buffer.concat "\n\n"
+      ^
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:30: syntax error, unexpected kENSURE, expecting '}'
+/Users/dean/src/chess_on_rails/app/views/matches/_move_maker.html.erb:32: syntax error, unexpected kEND, expecting '}') on line #3 of app/views/matches/_move_maker.html.erb:
+1: 
+2: <% form_for :move, :html => {:id => 'new_move_form'}, 
+3:                                 :url => "/matches/#{@match.id/create_move"  do |f| %>
+4:     Notation: <%= f.text_field :notation, :title => 'Enter a single move, such as Nc3' %> or... <br/>
+5:     From: <%= f.text_field :from_coord, :maxlength => '2' %> and
+6:     To: <%= f.text_field :to_coord, :maxlength => '2' %>
+
+    app/views/matches/_move_maker.html.erb:32:in `compile!'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.4) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/matches/show.html.haml:19:in `_run_haml_app47views47matches47show46html46haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (87.6ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:49:52) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (181.6ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.0ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.1ms)
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/matches/_move_maker.html.erb:
+1: 
+2: <% form_for :move, :html => {:id => 'new_move_form'}, 
+3:                                 :url => "/matches/#{@match.id}/create_move"  do |f| %>
+4:     Notation: <%= f.text_field :notation, :title => 'Enter a single move, such as Nc3' %> or... <br/>
+5:     From: <%= f.text_field :from_coord, :maxlength => '2' %> and
+6:     To: <%= f.text_field :to_coord, :maxlength => '2' %>
+
+    app/views/matches/_move_maker.html.erb:3
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (3.0.4) lib/haml/helpers.rb:90:in `non_haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/matches/show.html.haml:19:in `_run_haml_app47views47matches47show46html46haml'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+    haml (3.0.4) lib/sass/plugin/rack.rb:41:in `call'
+
+Rendered rescues/_trace (164.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:50:10) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (181.3ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.0ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (13.8ms)
+Rendered matches/_move_maker (5.1ms)
+Rendered matches/_move_list (2.7ms)
+Rendered matches/_graveyard (2.1ms)
+Completed in 256ms (View: 234, DB: 3) | 200 OK [http://localhost/matches/689068207]
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 768005954) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 768005954) ORDER BY move_num DESC LIMIT 1
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:50:29) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.2ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.9ms)
+Rendered matches/_move_maker (3.5ms)
+Rendered matches/_move_list (0.3ms)
+Rendered matches/_graveyard (0.4ms)
+Completed in 34ms (View: 28, DB: 2) | 200 OK [http://localhost/matches/689068207]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:50:31) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.8ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (68.1ms)
+Rendered matches/_move_maker (3.8ms)
+Rendered matches/_move_list (0.4ms)
+Rendered matches/_graveyard (0.4ms)
+Completed in 98ms (View: 93, DB: 2) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:50:41) [GET]
+  Parameters: {"id"=>"689068207"}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (179.3ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.2ms)
+Rendered matches/_move_maker (5.1ms)
+Rendered matches/_move_list (2.5ms)
+Rendered matches/_graveyard (1.9ms)
+Completed in 254ms (View: 232, DB: 3) | 200 OK [http://localhost/matches/689068207]
+^CExiting
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:51:25) [GET]
+  Parameters: {"id"=>"689068207", "sdf"=>nil}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.5ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (182.5ms)
+Rendered matches/_board_controls (1.0ms)
+Rendered matches/_play_tabs (2.0ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.7ms)
+Rendered matches/_move_maker (5.4ms)
+Rendered matches/_move_list (2.8ms)
+Rendered matches/_graveyard (2.9ms)
+Completed in 261ms (View: 239, DB: 3) | 200 OK [http://localhost/matches/689068207?sdf]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:51:28) [GET]
+  Parameters: {"id"=>"689068207", "sdf"=>nil}
+  User Load (0.7ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '281afcfd47c68c5d8a4b9d3884f5a06347d191d9') LIMIT 1
+  Player Load (0.3ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (16.3ms)
+Rendered matches/_board_controls (0.1ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.9ms)
+Rendered matches/_move_maker (3.6ms)
+Rendered matches/_move_list (0.4ms)
+Rendered matches/_graveyard (0.4ms)
+Completed in 34ms (View: 28, DB: 1) | 200 OK [http://localhost/matches/689068207?sdf]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:51:35) [GET]
+  Parameters: {"id"=>"689068207", "sdf"=>nil}
+  User Load (0.3ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '3289942cae4452a2c4a3f97168c771d07788a0e2') LIMIT 1
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 3ms (DB: 1) | 302 Found [http://localhost/matches/689068207?sdf]
+
+
+Processing Clearance::SessionsController#new (for 127.0.0.1 at 2010-06-07 20:51:35) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clearance/sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://localhost/session/new]
+
+
+Processing Clearance::SessionsController#create (for 127.0.0.1 at 2010-06-07 20:51:42) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"chicagogrooves@gmail.com"}, "action"=>"create", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "controller"=>"clearance/sessions"}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."email" = 'chicagogrooves@gmail.com') LIMIT 1
+  User Update (0.4ms)   UPDATE "users" SET "updated_at" = '2010-06-07 20:51:42', "remember_token" = '429c7f508e11e3b3fc014bdc6e02fc4e60ad6ccd' WHERE "id" = 1
+Redirected to http://localhost:3000/matches/689068207?sdf
+Completed in 10ms (DB: 2) | 302 Found [http://localhost/session]
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:51:42) [GET]
+  Parameters: {"id"=>"689068207", "sdf"=>nil}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '429c7f508e11e3b3fc014bdc6e02fc4e60ad6ccd') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+Rendered matches/_board_status (0.1ms)
+Rendered matches/_board (15.5ms)
+Rendered matches/_board_controls (0.2ms)
+Rendered matches/_play_tabs (0.1ms)
+Rendered chats/_chats (2.8ms)
+Rendered matches/_move_maker (4.0ms)
+Rendered matches/_move_list (0.4ms)
+Rendered matches/_graveyard (0.4ms)
+Completed in 100ms (View: 96, DB: 2) | 200 OK [http://localhost/matches/689068207?sdf]
+^CExiting
+hihat:chess_on_rails dean$ script/console 
+Loading development environment (Rails 2.3.5)
+To install these gems: 
+sudo gem install wirble
+sudo gem install map_by_method
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+>> Match[689068207]
+=> #<Match id: 689068207, active: 1, start_pos: nil, result: nil, winning_player: nil, name: "Dean vs. Dean Duel", created_at: "2010-06-07 17:32:05", updated_at: "2010-06-07 17:32:05">
+>> Match[689068207].moves.count
+=> 1
+>> Match[689068207].moves.last
+=> #<Move id: 1052509143, match_id: 689068207, from_coord: "d2", to_coord: "d4", move_num: 1, notation: "d4", castling_rook_from_coord: nil, castling_rook_to_coord: nil, captured_piece_coord: nil, promotion_choice: nil, created_at: "2010-06-07 20:39:52", updated_at: "2010-06-07 20:39:52">
+>> Match[689068207].moves.last.destroy
+=> #<Move id: 1052509143, match_id: 689068207, from_coord: "d2", to_coord: "d4", move_num: nil, notation: "d4", castling_rook_from_coord: nil, castling_rook_to_coord: nil, captured_piece_coord: nil, promotion_choice: nil, created_at: "2010-06-07 20:39:52", updated_at: "2010-06-07 20:52:30">
+>> Match[689068207].moves.last.destroy
+=> #<Move id: 1052509143, match_id: 689068207, from_coord: "d2", to_coord: "d4", move_num: nil, notation: "d4", castling_rook_from_coord: nil, castling_rook_to_coord: nil, captured_piece_coord: nil, promotion_choice: nil, created_at: "2010-06-07 20:39:52", updated_at: "2010-06-07 20:52:30">
+>> Match[689068207].moves.last.destroy
+=> #<Move id: 1052509143, match_id: 689068207, from_coord: "d2", to_coord: "d4", move_num: nil, notation: "d4", castling_rook_from_coord: nil, castling_rook_to_coord: nil, captured_piece_coord: nil, promotion_choice: nil, created_at: "2010-06-07 20:39:52", updated_at: "2010-06-07 20:52:30">
+>> Match[689068207].moves.count
+=> 0
+>> quit
+hihat:chess_on_rails dean$ script/console 
+Loading development environment (Rails 2.3.5)
+To install these gems: 
+sudo gem install wirble
+sudo gem install map_by_method
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+>> Match[689068207].moves.count
+=> 0
+>> quit
+hihat:chess_on_rails dean$ script/server
+=> Booting Mongrel
+=> Rails 2.3.5 application starting on http://0.0.0.0:3000
+Starting debugging server... on 8989
+Use script/attach [hostname] [port] to connect a debugging application.
+Loading in custom breakpoints...
+Views and Code will NOT be automatically reloaded this session
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Processing MatchesController#show (for 127.0.0.1 at 2010-06-07 20:53:05) [GET]
+  Parameters: {"id"=>"689068207", "sdf"=>nil}
+  User Load (0.6ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '429c7f508e11e3b3fc014bdc6e02fc4e60ad6ccd') LIMIT 1
+  Player Load (0.4ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+Rendering template within layouts/application
+Rendering matches/show
+  Match Load (0.4ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Gameplay Load (0.5ms)   SELECT "gameplays".* FROM "gameplays" WHERE ("gameplays".match_id = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Move Load (0.3ms)   SELECT "moves".* FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num
+Rendered matches/_board_status (0.6ms)
+Rendered matches/_board (178.1ms)
+Rendered matches/_board_controls (0.6ms)
+Rendered matches/_play_tabs (2.1ms)
+  Chat Load (0.2ms)   SELECT * FROM "chats" WHERE ("chats".match_id = 689068207) 
+Rendered chats/_chats (14.6ms)
+Rendered matches/_move_maker (5.1ms)
+Rendered matches/_move_list (2.3ms)
+Rendered matches/_graveyard (1.9ms)
+Completed in 248ms (View: 226, DB: 3) | 200 OK [http://localhost/matches/689068207?sdf]
+
+
+Processing MatchesController#create_move (for 127.0.0.1 at 2010-06-07 20:53:10) [POST]
+  Parameters: {"commit"=>"Submit Move", "authenticity_token"=>"KZyoRhTV+GU986HNHVcn+s4VW3+xY3GWrfbs77W06A8=", "id"=>"689068207", "move"=>{"from_coord"=>"d2", "notation"=>"", "to_coord"=>"d4"}}
+  User Load (0.5ms)   SELECT * FROM "users" WHERE ("users"."remember_token" = '429c7f508e11e3b3fc014bdc6e02fc4e60ad6ccd') LIMIT 1
+  Player Load (0.2ms)   SELECT * FROM "players" WHERE ("players"."id" = 1) 
+  Player Load (0.1ms)   SELECT * FROM "players" WHERE ("players"."id" = 0) 
+  Move Load (0.2ms)   SELECT * FROM "moves" WHERE (match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  Move Create (0.3ms)   INSERT INTO "moves" ("created_at", "from_coord", "notation", "match_id", "captured_piece_coord", "updated_at", "castling_rook_to_coord", "move_num", "promotion_choice", "to_coord", "castling_rook_from_coord") VALUES('2010-06-07 20:53:10', 'd2', 'd4', 689068207, NULL, '2010-06-07 20:53:10', NULL, 1, NULL, 'd4', NULL)
+  Match Load (0.3ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  Move Load (0.5ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+  CACHE (0.0ms)   SELECT * FROM "moves" WHERE ("moves".match_id = 689068207) ORDER BY move_num DESC LIMIT 1
+  CACHE (0.0ms)   SELECT * FROM "matches" WHERE ("matches"."id" = 689068207) 
+Redirected to http://localhost:3000/matches/689068207
+Completed in 20ms (DB: 3) | 302 Found [http://localhost/matches/689068207/create_move]
+^CExiting
+hihat:chess_on_rails dean$ which md5sum
+hihat:chess_on_rails dean$ md5
+^C
+hihat:chess_on_rails dean$ which md5
+/sbin/md5
+hihat:chess_on_rails dean$ ls ~/Downloads/
+MidiInput			drum_machines_v8.3.zip.download	session_drums_update_v8-1
+MidiInput.jar			session_drums_update_v8		session_drums_update_v8-2
+hihat:chess_on_rails dean$ ls ~/Downloads/
+.DS_Store                        MidiInput.jar                    session_drums_update_v8-1/
+.localized                       drum_machines_v8.3.zip.download/ session_drums_update_v8-2/
+MidiInput/                       session_drums_update_v8/         
+hihat:chess_on_rails dean$ ln -s ~/Library/
+.DS_Store             ColorPickers/         Input Methods/        Preferences/          Widgets/
+.localized            Colors/               Internet Plug-Ins/    Printers/             iMovie/
+Application Support/  Compositions/         Keyboard Layouts/     PubSub/               iTunes/
+Assistants/           Cookies/              Keychains/            Safari/               jEdit/
+Audio/                Favorites/            LaunchAgents/         Screen Savers/        
+Autosave Information/ FontCollections/      Logs/                 Sounds/               
+Caches/               Fonts/                Mail/                 TeXShop/              
+Calendars/            Google/               PreferencePanes/      Voices/               
+hihat:chess_on_rails dean$ ln -s ~/Library/Caches/
+Ableton/                                            com.apple.frontrow/
+Adobe/                                              com.apple.helpd/
+Aquamacs Emacs/                                     com.apple.helpviewer/
+Cleanup At Startup/                                 com.apple.iCal/
+Google/                                             com.apple.iChat/
+Java/                                               com.apple.iLifeMediaBrowser/
+Metadata/                                           com.apple.iMovie8/
+Opera/                                              com.apple.iPhoto/
+QCCompositionRepository-com.apple.PhotoBooth.cache  com.apple.iTunes/
+QCCompositionRepository-com.apple.iTunes.cache      com.apple.idvd/
+QuickTime/                                          com.apple.installer/
+TemporaryItems/                                     com.apple.mail/
+UpdateEngine-Temp/                                  com.apple.nsservicescache.plist
+com.apple.AddressBook/                              com.apple.preferencepanes.cache
+com.apple.DictionaryServices/                       com.apple.preferencepanes.searchindexcache
+com.apple.PropertyListEditor/                       com.apple.systempreferences/
+com.apple.PubSubAgent/                              com.google.Keystone.Agent/
+com.apple.QuickLookDaemon/                          com.google.UpdateEngine.Framework.501/
+com.apple.Safari/                                   com.sonos.macUpdater/
+com.apple.ScreenSaver.Engine/                       com.tcltk.wish/
+com.apple.SoftwareUpdate/                           ksurl/
+com.apple.Xcode/                                    org.lilypond.lilypond/
+com.apple.dashboard.client/                         
+hihat:chess_on_rails dean$ ln -s ~/Library/Caches/Opera/
+.DS_Store            Temp/                icons/               temporary_downloads/ vps/
+CacheLock            cache/               opcache/             thumbnails/          
+hihat:chess_on_rails dean$ ln -s ~/Library/Caches/Opera/temporary_downloads/
+.DS_Store                 crossdomain (1).xml       crossdomain (4).xml       frescobaldi-1.0.2.tar.gz
+1.xml                     crossdomain (10).xml      crossdomain (5).xml       lilypond-internals.pdf
+253441.xml                crossdomain (11).xml      crossdomain (6).xml       magit-0.7/
+AdInjector_125.js         crossdomain (12).xml      crossdomain (7).xml       magit-0.7.tar.gz
+Adium_1.3.10.dmg          crossdomain (13).xml      crossdomain (8).xml       moogaloop.swf
+Smart3Handler (2).htm     crossdomain (14).xml      crossdomain (9).xml       override_downloaded.ini
+Smart3Handler (3).htm     crossdomain (15).xml      crossdomain.xml           resources.xml
+Smart3Handler (4).htm     crossdomain (16).xml      default.htm               sd.htm
+Smart3Handler (5).htm     crossdomain (2).xml       default.xml               smart3handler (1).htm
+Smart3Handler.htm         crossdomain (3).xml       frescobaldi-1.0.2/        soundmanager2.swf
+hihat:chess_on_rails dean$ ln -s ~/Library/Caches/Opera/temporary_downloads/ ~/Downloads/Opera\ Downloads
+hihat:chess_on_rails dean$ md5 ~/Downloads/Opera\ Downloads/Ad
+AdInjector_125.js  Adium_1.3.10.dmg   
+hihat:chess_on_rails dean$ md5 ~/Downloads/Opera\ Downloads/Ad
+AdInjector_125.js  Adium_1.3.10.dmg   
+hihat:chess_on_rails dean$ md5 ~/Downloads/Opera\ Downloads/Adium_1.3.10.dmg 
+MD5 (/Users/dean/Downloads/Opera Downloads/Adium_1.3.10.dmg) = 16309a78add9dc7695ccc14079baae10
+hihat:chess_on_rails dean$ md5 -h
+md5: illegal option -- h
+usage: md5 [-pqrtx] [-s string] [files ...]
+hihat:chess_on_rails dean$ md5 --help
+md5: illegal option -- -
+usage: md5 [-pqrtx] [-s string] [files ...]
+hihat:chess_on_rails dean$ man md5
+hihat:chess_on_rails dean$ echo 16309a78add9dc7695ccc14079baae10
+16309a78add9dc7695ccc14079baae10
+hihat:chess_on_rails dean$ 16309a78add9dc7695ccc14079baae10
+-bash: 16309a78add9dc7695ccc14079baae10: command not found
+hihat:chess_on_rails dean$ echo 16309a78add9dc7695ccc14079baae10
+16309a78add9dc7695ccc14079baae10
+hihat:chess_on_rails dean$ ssh chicagogrooves@chicagogrooves.com
+                    __              __      
+    ___ __  _____ _/ /__ ____  ____/ /  ___ 
+   / _ `/ |/ / _ `/ / _ `/ _ \/ __/ _ \/ -_)
+   \_,_/|___/\_,_/_/\_,_/_//_/\__/_//_/\__/ 
+                                            
+ Welcome to avalanche.dreamhost.com
+
+Any malicious and/or unauthorized activity is strictly forbidden.
+All activity may be logged by DreamHost Web Hosting.
+
+DHOST ~ > uname
+Linux
+DHOST ~ > uname -a
+Linux avalanche 2.6.32.8-grsec-2.1.14-modsign-xeon-64 #2 SMP Sat Mar 13 00:42:43 PST 2010 x86_64 GNU/Linux
+DHOST ~ > wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.12.3-1.linux-64.sh
+--22:04:30--  http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.12.3-1.linux-64.sh
+           => `lilypond-2.12.3-1.linux-64.sh'
+Resolving download.linuxaudio.org... 198.82.152.114
+Connecting to download.linuxaudio.org|198.82.152.114|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 24,267,472 (23M) [text/x-sh]
+
+100%[===============================================================================>] 24,267,472     5.68M/s    ETA 00:00
+
+22:04:36 (4.32 MB/s) - `lilypond-2.12.3-1.linux-64.sh' saved [24267472/24267472]
+
+DHOST ~ > ls -
+ls: -: No such file or directory
+DHOST ~ > ls -l
+total 61040
+-rwxr-xr-x  1 chicagogrooves pg2108856 11468800 2010-02-02 08:10 M4H00049.MP4
+drwxr-xr-x  5 chicagogrooves pg2108856     4096 2007-09-06 16:45 Maildir
+-rw-r--r--  1 chicagogrooves pg2108856  5319814 2010-03-19 06:48 The Gambler.mp3
+-rw-r--r--  1 chicagogrooves pg2108856  1409024 2009-09-08 06:53 Try_DrumsMScratch.mp3
+-rw-r--r--  1 chicagogrooves pg2108856 15558204 2010-03-19 11:11 YMSB_Kentucky_mandolin.mp3
+lrwxrwxrwx  1 chicagogrooves pg2108856       49 2009-11-15 18:13 chess -> /home/chicagogrooves/www.chessonrails.com/current
+drwxr-xr-x  2 chicagogrooves pg2108856     4096 2009-09-02 11:17 chessonrails.com
+drwxr-xr-x  6 chicagogrooves pg2108856     4096 2010-06-08 20:15 chicagogrooves.com
+-rw-r--r--  1 chicagogrooves pg2108856   193960 2010-03-15 13:07 cnu_dpkgl.txt
+-rw-r--r--  1 chicagogrooves pg2108856     1099 2010-03-15 13:07 cnu_gems.txt
+-rw-r--r--  1 chicagogrooves pg2108856      389 2009-08-14 16:14 database.yml
+-rw-r--r--  1 chicagogrooves pg2108856  3535216 2009-11-03 13:01 elisp.zip
+-rw-r--r--  1 chicagogrooves pg2108856   132131 2010-03-16 12:09 emacsd.zip
+drwxrwxr-x  5 chicagogrooves pg2108856     4096 2009-10-08 19:42 facebook_root
+lrwxrwxrwx  1 chicagogrooves pg2108856       21 2009-07-31 10:47 fb -> facebook_root/current
+-rw-rw-r--  1 chicagogrooves pg2108856 24267472 2009-12-20 06:12 lilypond-2.12.3-1.linux-64.sh
+dr-xr-x---  6 chicagogrooves dhapache      4096 2009-06-15 20:58 logs
+drwxr-xr-x  4 chicagogrooves pg2108856     4096 2010-04-10 18:35 mainline
+lrwxrwxrwx  1 chicagogrooves pg2108856       42 2009-09-08 06:55 music -> music.chicagogrooves.com/public/resources/
+drwxrwxr-x 15 chicagogrooves pg2108856     4096 2009-09-17 08:26 music.chicagogrooves.com
+drwxr-xr-x  2 chicagogrooves pg2108856     4096 2009-04-12 11:17 old.facebook
+-rw-rw-r--  1 chicagogrooves pg2108856     1250 2009-08-19 07:31 production.rb
+-rw-rw-r--  1 chicagogrooves pg2108856      763 2009-08-19 07:28 production.rb~
+-rw-rw-r--  1 chicagogrooves pg2108856   430080 2009-07-27 19:03 res.tar
+drwxr-xr-x 15 chicagogrooves pg2108856     4096 2010-05-11 22:39 resourcerer
+drwxrwxrwx  2 chicagogrooves pg2108856     4096 2009-08-08 21:45 resources
+drwxrwxr-x  3 chicagogrooves pg2108856     4096 2010-04-11 23:33 src
+drwxr-xr-x  2 chicagogrooves pg2108856     4096 2010-04-10 18:32 tilde
+drwxr-xr-x  4 chicagogrooves pg2108856     4096 2010-03-03 14:48 www.chessonrails.com
+-rw-rw-r--  1 chicagogrooves pg2108856      230 2010-04-10 18:30 xmodmap_caps_lock.xmodmap
+-rw-rw-r--  1 chicagogrooves pg2108856     1711 2010-04-10 18:30 xorg.conf
+DHOST ~ > sh lilypond-2.12.3-1.linux-64.sh 
+
+lilypond installer for version 2.12.3 release 1.
+Use --help for help
+
+
+You are about to install LilyPond in /home/chicagogrooves/lilypond
+A script in /home/chicagogrooves/bin will be created as a shortcut.
+
+Press ^C to abort, or Enter to proceed.
+
+Making /home/chicagogrooves/lilypond
+Making /home/chicagogrooves/bin
+Creating script /home/chicagogrooves/bin/lilypond
+Creating script /home/chicagogrooves/bin/lilypond-wrapper.python
+Creating script /home/chicagogrooves/bin/lilypond-wrapper.guile
+Creating script /home/chicagogrooves/bin/uninstall-lilypond
+Untarring lilypond-2.12.3-1.linux-64.sh
+To uninstall lilypond, run
+
+    /home/chicagogrooves/bin/uninstall-lilypond
+
+For license and warranty information, consult
+
+    /home/chicagogrooves/lilypond/license/README
+
+Full documentation can be found at
+
+    http://lilypond.org/doc
+
+DHOST ~ > which lilypond
+DHOST ~ > ./lilypond/
+license/ usr/     
+DHOST ~ > ./lilypond/usr/
+bin/   etc/   lib/   share/ var/   
+DHOST ~ > ./lilypond/usr/bin/
+abc2ly                  db_recover              glib-genmarshal         midi2ly                 ps2pdf12
+bdftops                 db_stat                 gobject-query           musicxml2ly             ps2pdf13
+convert-ly              db_upgrade              gs                      pango-querymodules      ps2pdf14
+db_archive              db_verify               gtester                 pango-view              ps2pdfwr
+db_checkpoint           eps2eps                 guile                   pdf2dsc                 ps2ps
+db_codegen              etf2ly                  lilymidi                pdf2ps                  ps2ps2
+db_deadlock             fc-cache                lilypond                pdfopt                  pydoc
+db_dump                 fc-cat                  lilypond-book           pfbtopfa                python
+db_hotbackup            fc-list                 lilypond-invoke-editor  ps2ascii                python2.4
+db_load                 fc-match                lilysong                ps2epsi                 recode-sr-latin
+db_printlog             flex                    lprsetup.sh             ps2pdf                  smtpd.py
+DHOST ~ > find . -name \*.mid
+DHOST ~ > find . -name \*.midi
+DHOST ~ > find . -name \*.mid
+DHOST ~ > find . -name \*.ly
+./chicagogrooves.com/lilypond/._Tutorial1-HowToNotateChordsForLilyPond.ly
+./chicagogrooves.com/lilypond/Fatbacks-Swingin.ly
+./chicagogrooves.com/lilypond/drum_examples.ly
+./chicagogrooves.com/lilypond/._Fatbacks-Swingin.ly
+./chicagogrooves.com/lilypond/Tutorial1-HowToNotateChordsForLilyPond.ly
+./lilypond/usr/share/lilypond/current/ly/predefined-guitar-ninth-fretboards.ly
+./lilypond/usr/share/lilypond/current/ly/predefined-guitar-fretboards.ly
+./lilypond/usr/share/lilypond/current/ly/makam.ly
+./lilypond/usr/share/lilypond/current/ly/chord-modifiers-init.ly
+./lilypond/usr/share/lilypond/current/ly/declarations-init.ly
+./lilypond/usr/share/lilypond/current/ly/svenska.ly
+./lilypond/usr/share/lilypond/current/ly/init.ly
+./lilypond/usr/share/lilypond/current/ly/scale-definitions-init.ly
+./lilypond/usr/share/lilypond/current/ly/Welcome_to_LilyPond.ly
+./lilypond/usr/share/lilypond/current/ly/markup-init.ly
+./lilypond/usr/share/lilypond/current/ly/property-init.ly
+./lilypond/usr/share/lilypond/current/ly/drumpitch-init.ly
+./lilypond/usr/share/lilypond/current/ly/graphviz-init.ly
+./lilypond/usr/share/lilypond/current/ly/midi-init.ly
+./lilypond/usr/share/lilypond/current/ly/suomi.ly
+./lilypond/usr/share/lilypond/current/ly/predefined-fretboards-init.ly
+./lilypond/usr/share/lilypond/current/ly/norsk.ly
+./lilypond/usr/share/lilypond/current/ly/nederlands.ly
+./lilypond/usr/share/lilypond/current/ly/lilypond-book-preamble.ly
+./lilypond/usr/share/lilypond/current/ly/italiano.ly
+./lilypond/usr/share/lilypond/current/ly/festival.ly
+./lilypond/usr/share/lilypond/current/ly/music-functions-init.ly
+./lilypond/usr/share/lilypond/current/ly/catalan.ly
+./lilypond/usr/share/lilypond/current/ly/paper-defaults-init.ly
+./lilypond/usr/share/lilypond/current/ly/performer-init.ly
+./lilypond/usr/share/lilypond/current/ly/script-init.ly
+./lilypond/usr/share/lilypond/current/ly/generate-interface-doc-init.ly
+./lilypond/usr/share/lilypond/current/ly/titling-init.ly
+./lilypond/usr/share/lilypond/current/ly/gregorian.ly
+./lilypond/usr/share/lilypond/current/ly/engraver-init.ly
+./lilypond/usr/share/lilypond/current/ly/toc-init.ly
+./lilypond/usr/share/lilypond/current/ly/english.ly
+./lilypond/usr/share/lilypond/current/ly/arabic.ly
+./lilypond/usr/share/lilypond/current/ly/params-init.ly
+./lilypond/usr/share/lilypond/current/ly/generate-documentation.ly
+./lilypond/usr/share/lilypond/current/ly/espanol.ly
+./lilypond/usr/share/lilypond/current/ly/spanners-init.ly
+./lilypond/usr/share/lilypond/current/ly/grace-init.ly
+./lilypond/usr/share/lilypond/current/ly/dynamic-scripts-init.ly
+./lilypond/usr/share/lilypond/current/ly/portugues.ly
+./lilypond/usr/share/lilypond/current/ly/vlaams.ly
+./lilypond/usr/share/lilypond/current/ly/bagpipe.ly
+./lilypond/usr/share/lilypond/current/ly/Welcome-to-LilyPond-MacOS.ly
+./lilypond/usr/share/lilypond/current/ly/deutsch.ly
+DHOST ~ > 
+DHOST ~ > cp chicagogrooves.com/lilypond/Fatbacks-Swingin.ly fatbacks.ly
+DHOST ~ > ./lilypond/usr/bin/lilypond fatbacks.ly 
+GNU LilyPond 2.12.3
+Processing `fatbacks.ly'
+Parsing...
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+fatbacks.ly:24:25: warning: No tuplet to end
+bdD      = \drummode{ s4 
+                         \times 2/3{ s4 bd8 }}
+fatbacks.ly:24:25: warning: No tuplet to end
+bdD      = \drummode{ s4 
+                         \times 2/3{ s4 bd8 }}
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+fatbacks.ly:28:25: warning: No tuplet to end
+bdH      = \drummode{ s4 
+                         \times 2/3{ bd4 bd8 } }
+fatbacks.ly:28:25: warning: No tuplet to end
+bdH      = \drummode{ s4 
+                         \times 2/3{ bd4 bd8 } }
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+fatbacks.ly:32:44: warning: No tuplet to end
+bdL      = \drummode{ \times 2/3{ bd4 bd8 } 
+                                            \times 2/3{ s4 bd8 } }
+fatbacks.ly:32:44: warning: No tuplet to end
+bdL      = \drummode{ \times 2/3{ bd4 bd8 } 
+                                            \times 2/3{ s4 bd8 } }
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Interpreting music... 
+fatbacks.ly:34:43: warning: No tuplet to end
+bdN      = \drummode{ \times 2/3{ s4 bd8 } 
+                                           \times 2/3{ bd4 bd8 } }
+fatbacks.ly:34:43: warning: No tuplet to end
+bdN      = \drummode{ \times 2/3{ s4 bd8 } 
+                                           \times 2/3{ bd4 bd8 } }
+Preprocessing graphical objects...
+Calculating line breaks... 
+Drawing systems... 
+Finding the ideal number of pages...
+Fitting music on 1 page...
+Drawing systems...
+Layout output to `fatbacks.ps'...
+Converting to `./fatbacks.pdf'...
+DHOST ~ > mv fatbacks.pdf chicagogrooves.com/
+._eugene-cormier-lilypond-guide.pdf  favicon.ico                          lilypond/
+blog/                                googlehostedservice.html             lilypond_files/
+blog.old/                            index.htm                            playing_for_change.gif
+eugene-cormier-lilypond-guide.pdf    influences                           robots.txt
+favicon.gif                          influences~                          
+DHOST ~ > mv fatbacks.pdf chicagogrooves.com/lilypond
+lilypond/       lilypond_files/ 
+DHOST ~ > mv fatbacks.pdf chicagogrooves.com/lilypond/
+._Fatbacks-Swingin.ly                        Tutorial1-HowToNotateChordsForLilyPond.ly
+._Tutorial1-HowToNotateChordsForLilyPond.ly  Tutorial1-HowToNotateChordsForLilyPond.pdf
+Fatbacks-Swingin.ly                          drum_examples.ly
+Fatbacks-Swingin.pdf                         drum_examples.pdf
+DHOST ~ > mv fatbacks.pdf chicagogrooves.com/lilypond/fatbacks2.pdf
+DHOST ~ > ./lilypond/usr/bin/midi2ly walkin_around_in_the_snow.mid 
+LY output to `./walkin_around_in_the_snow-midi.ly'...
+DHOST ~ > mv ./walkin_around_in_the_snow-midi.ly chicagogrooves.com/lilypond
+DHOST ~ > ./lilypond/usr/bin/lilypond chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly 
+GNU LilyPond 2.12.3
+Processing `chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly'
+Parsing...
+error: file too old: 2.7.18 (oldest supported: 2.7.38)
+error: consider updating the input with the convert-ly script
+Interpreting music... 
+Preprocessing graphical objects...
+Finding the ideal number of pages...
+Fitting music on 1 page...
+Drawing systems...
+Layout output to `walkin_around_in_the_snow-midi.ps'...
+Converting to `./walkin_around_in_the_snow-midi.pdf'...
+error: failed files: "chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly"
+DHOST ~ > ./lilypond/usr/bin/convert-ly chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly 
+convert-ly (GNU LilyPond) 2.12.3
+Processing `chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly'... 
+Applying conversion: 2.7.22, 2.7.24, 2.7.28, 2.7.29, 2.7.30, 2.7.31, 2.7.32, 2.7.32, 2.7.36, 2.7.40, 2.9.4, 2.9.6, 2.9.9, 2.9.11, 2.9.13, 2.9.16, 2.9.19, 2.10.0, 2.11.2, 2.11.3, 2.11.5, 2.11.6, 2.11.10, 2.11.11, 2.11.13, 2.11.15, 2.11.23, 2.11.35, 2.11.38, 2.11.46, 2.11.48, 2.11.50, 2.11.51, 2.11.52, 2.11.53, 2.11.55, 2.11.57, 2.11.60, 2.11.61, 2.11.62, 2.11.64, 2.12.0, 2.12.3
+% Lily was here -- automatically converted by ./lilypond/usr/bin/midi2ly from walkin_around_in_the_snow.mid
+\version "2.12.3"
+
+
+trackAchannelA =  {
+  
+  % [SEQUENCE_TRACK_NAME] control track
+  
+  % [TEXT_EVENT] creator: 
+  
+  % [TEXT_EVENT] GNU LilyPond 2.12.3           
+  
+  \time 4/4 
+  
+  \tempo 4 = 60 
+  
+}
+
+trackA = <<
+  \context Voice = channelA \trackAchannelA
+>>
+
+
+trackBchannelA =  {
+  
+  % [SEQUENCE_TRACK_NAME] chords in Bb
+  
+  % [INSTRUMENT_NAME] banjo
+  
+}
+
+trackBchannelB = \relative c {
+  <ais' d f >1 |
+  % 2
+  <dis, g ais >1 |
+  % 3
+  <f a c >1. <ais d f >1 <f' d ais >1 <dis, g ais >1 <f a c >1. 
+  <f' d ais >1 |
+  % 10
+  <f, a c >1. <ais d f >1 
+}
+
+trackB = <<
+
+  \clef bass
+  
+  \context Voice = channelA \trackBchannelA
+  \context Voice = channelB \trackBchannelB
+>>
+
+
+\score {
+  <<
+    \context Staff=trackB \trackB
+  >>
+}
+
+DHOST ~ > ./lilypond/usr/bin/lilypond chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly 
+GNU LilyPond 2.12.3
+Processing `chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly'
+Parsing...
+error: file too old: 2.7.18 (oldest supported: 2.7.38)
+error: consider updating the input with the convert-ly script
+Interpreting music... 
+Preprocessing graphical objects...
+Finding the ideal number of pages...
+Fitting music on 1 page...
+Drawing systems...
+Layout output to `walkin_around_in_the_snow-midi.ps'...
+Converting to `./walkin_around_in_the_snow-midi.pdf'...
+error: failed files: "chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly"
+DHOST ~ > ./lilypond/usr/bin/convert-ly chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly > chicagogrooves.com/lilypond/walkin_around_in_the_snow2.ly
+convert-ly (GNU LilyPond) 2.12.3
+Processing `chicagogrooves.com/lilypond/walkin_around_in_the_snow-midi.ly'... 
+Applying conversion: 2.7.22, 2.7.24, 2.7.28, 2.7.29, 2.7.30, 2.7.31, 2.7.32, 2.7.32, 2.7.36, 2.7.40, 2.9.4, 2.9.6, 2.9.9, 2.9.11, 2.9.13, 2.9.16, 2.9.19, 2.10.0, 2.11.2, 2.11.3, 2.11.5, 2.11.6, 2.11.10, 2.11.11, 2.11.13, 2.11.15, 2.11.23, 2.11.35, 2.11.38, 2.11.46, 2.11.48, 2.11.50, 2.11.51, 2.11.52, 2.11.53, 2.11.55, 2.11.57, 2.11.60, 2.11.61, 2.11.62, 2.11.64, 2.12.0, 2.12.3
+
+DHOST ~ > ./lilypond/usr/bin/lilypond chicagogrooves.com/lilypond/walkin_around_in_the_snow2.ly GNU LilyPond 2.12.3
+Processing `chicagogrooves.com/lilypond/walkin_around_in_the_snow2.ly'
+Parsing...
+Interpreting music... 
+Preprocessing graphical objects...
+Finding the ideal number of pages...
+Fitting music on 1 page...
+Drawing systems...
+Layout output to `walkin_around_in_the_snow2.ps'...
+Converting to `./walkin_around_in_the_snow2.pdf'...
+DHOST ~ > mv walkin_around_in_the_snow2.pdf chicagogrooves.com/lilypond
+DHOST ~ > head chicagogrooves.com/lilypond/walkin_around_in_the_snow2.ly 
+% Lily was here -- automatically converted by ./lilypond/usr/bin/midi2ly from walkin_around_in_the_snow.mid
+\version "2.12.3"
+
+
+trackAchannelA =  {
+  
+  % [SEQUENCE_TRACK_NAME] control track
+  
+  % [TEXT_EVENT] creator: 
+  
+DHOST ~ > Read from remote host chicagogrooves.com: Connection reset by peer
+Connection to chicagogrooves.com closed.
+hihat:chess_on_rails dean$ ssh chicagogrooves@chicagogrooves.com
+                    __              __      
+    ___ __  _____ _/ /__ ____  ____/ /  ___ 
+   / _ `/ |/ / _ `/ / _ `/ _ \/ __/ _ \/ -_)
+   \_,_/|___/\_,_/_/\_,_/_//_/\__/_//_/\__/ 
+                                            
+ Welcome to avalanche.dreamhost.com
+
+Any malicious and/or unauthorized activity is strictly forbidden.
+All activity may be logged by DreamHost Web Hosting.
+
+DHOST ~ > cd music.chicagogrooves.com/
+DHOST ~/music.chicagogrooves.com > find . -name LocalSettings.php
+./public/banjar/config/LocalSettings.php
+DHOST ~/music.chicagogrooves.com > mv public/banjar/config/LocalSettings.php public/banjar/
+DHOST ~/music.chicagogrooves.com > vim public/banjar/
+AdminSettings.sample  RELEASE-NOTES         images/               math/                 skins/
+COPYING               StartProfiler.php     img_auth.php          opensearch_desc.php   t/
+CREDITS               UPGRADE               img_auth.php5         opensearch_desc.php5  tests/
+FAQ                   api.php               includes/             php5.php5             thumb.php
+HISTORY               api.php5              index.php             profileinfo.php       thumb.php5
+INSTALL               bin/                  index.php5            redirect.php          trackback.php
+LocalSettings.php     config/               install-utils.inc     redirect.php5         trackback.php5
+Makefile              docs/                 languages/            redirect.phtml        wiki.phtml
+README                extensions/           maintenance/          serialized/           
+DHOST ~/music.chicagogrooves.com > vim public/banjar/extensions/README 
+DHOST ~/music.chicagogrooves.com > vim public/banjar/extensions/LilyPond.php
+DHOST ~/music.chicagogrooves.com > cat public/banjar/extensions/LilyPond.php 
+<?php
+ 
+/*
+ 
+	MediaWiki extension: LilyPond
+	=============================
+ 
+ 
+To activate, edit your LocalSettings.php, add
+ 
+	require_once("$IP/extensions/LilyPond.php");
+ 
+and make sure that the images/ directory is writable.
+ 
+ 
+Example wiki code: <lilypond>\relative c' { c d e f g }</lilypond>
+ 
+If you want to typeset a fragment with clickable midi, use
+ 
+	<lilymidi>...</lilymidi>
+ 
+If you want write a complete lilypond file, use
+ 
+	<lilybook>...</lilybook>
+ 
+ 
+Tested with Lilypond version 2.12.2.
+ 
+*/
+ 
+# User Settings
+
+# The following variables can be set in LocalSettings.php
+# before the line:
+# require_once("$IP/extensions/LilyPond.php");
+
+# You can set the variable $wgLilypond if you want/need to override the
+# path to the Lilypond executable. For example:
+# $wgLilypond = "/home/username/bin/lilypond";
+
+# Add a text link to prompt user to listen to midi, before and/or after
+# the image. Remember line breaks
+# $wgLilypondPreMidi  = "Listen<br>";
+# $wgLilypondPostMidi = "<br>Listen";  
+
+# If you want to avoid trimming the resulting image, set $wgLilypondTrim
+# to false.
+# $wgLilypondTrim = false;
+
+# You can put a white border around the image if you like.
+# $wgLilypondBorderX = 10;
+# $wgLilypondBorderY = 0;
+
+# End User Settings
+
+# Defaulting of user settings
+if( !isset( $wgLilypond ) )
+	$wgLilypond = "PATH=\$PATH:/usr/local/bin /usr/local/bin/lilypond";
+ 
+if( !isset( $wgLilypondPreMidi ) )
+	$wgLilypondPreMidi = "";
+ 
+if( !isset( $wgLilypondPostMidi ) )
+	$wgLilypondPostMidi = "";
+ 
+if( !isset( $wgLilypondTrim ) ) {
+	$wgLilypondTrim = true;
+}
+ 
+if( !isset( $wgLilypondBorderX ) ) {
+	$wgLilypondBorderX = 0;
+}
+ 
+if( !isset( $wgLilypondBorderY ) ) {
+	$wgLilypondBorderY = 0;
+}
+ 
+$wgExtensionFunctions[] = "wfLilyPondExtension";
+ 
+function wfLilyPondExtension() {
+	global $wgParser;
+	$wgParser->setHook( "lilypond", "renderLilyPondFragment" );
+	$wgParser->setHook( "lilymidi", "renderLilyPondMidiFragment" );
+	$wgParser->setHook( "lilybook", "renderLilyPond" );
+}
+ 
+function renderLilyPondMidiFragment( $lilypond_code )
+{
+	return renderLilyPondFragment( $lilypond_code, true );
+}
+ 
+function renderLilyPondFragment( $lilypond_code, $midi=false )
+{
+	return renderLilyPond( "\\header {\n"
+			. "\ttagline = ##f\n"
+			. "}\n"
+			. "\\paper {\n"
+			. "\traggedright = ##t\n"
+			. "\traggedbottom = ##t\n"
+			. "\tindent = 0\mm\n"
+			. "}\n"
+			. "\\score {\n"
+			. $lilypond_code
+			. "\t\\layout { }\n"
+			. ($midi?"\t\\midi { }\n":"")
+			. "}\n", $lilypond_code );
+}
+ 
+function renderLilyPond( $lilypond_code, $short_code=false )
+{
+	global $wgMathPath, $wgMathDirectory, $wgTmpDirectory, $wgLilypond, $wgLilypondPreMidi, $wgLilypondPostMidii, $wgLilypondTrim, $wgLilypondBorderX, $wgLilypondBorderY;
+ 
+	$mf   = wfMsg( "math_failure" );
+	$munk = wfMsg( "math_unknown_error" );
+ 
+	$fname = "renderMusic";
+ 
+	$md5 = md5($lilypond_code);
+ 
+	if( file_exists( $wgMathDirectory."/".$md5.".midi" ) ) {
+                $pre = "<a href=\"".$wgMathPath."/".$md5.".midi\"> " . $wgLilypondPreMidi;
+                $post = $wgLilypondPostMidi . " </a>";
+	} else {
+		$pre = "";
+		$post = "";
+	}
+ 
+	# if short_code is supplied, this is a fragment
+	if( $short_code ) {
+		$link = "<img src=\"".$wgMathPath."/".$md5.".png\" alt=\""
+			.htmlspecialchars( $short_code )."\">";
+ 
+		if( file_exists( "$wgMathDirectory/$md5.png" ) ) {
+			return $pre.$link.$post;
+		}
+	} else {
+		if(  file_exists( "$wgMathDirectory/$md5-1.png" ) ) {
+			$link="";
+			for($i=1; file_exists( $wgMathDirectory . "/" .
+						$md5 . "-" . $i . ".png" );
+					$i++) {
+ 
+				$link .= "<img src=\"" . $wgMathPath . "/" .
+					$md5 . "-" . $i . ".png\" alt=\"" .
+					htmlspecialchars( "page ".$i )."\">";
+			}
+			return $pre.$link.$post;
+		}
+	}
+ 
+	# Ensure that the temp and output dirs are available before continuing.
+	if( !file_exists( $wgMathDirectory ) ) {
+		if( !@mkdir( $wgMathDirectory ) ) {
+			return "<b>$mf (" . wfMsg( "math_bad_output" ) .
+				$wgMathDirectory . ")</b>";
+		}
+	} elseif( !is_dir( $wgMathDirectory ) ||
+			!is_writable( $wgMathDirectory ) ) {
+		return "<b>$mf (" . wfMsg( "math_bad_output" ) . ")</b>";
+	}
+	if( !file_exists( $wgTmpDirectory ) ) {
+		if( !@mkdir( $wgTmpDirectory ) ) {
+			return "<b>$mf (" . wfMsg( "math_bad_tmpdir" )
+				. ")</b>";
+		}
+	} elseif( !is_dir( $wgTmpDirectory ) ||
+			!is_writable( $wgTmpDirectory ) ) {
+		return "<b>$mf (" . wfMsg( "math_bad_tmpdir" ) . ")</b>";
+	}
+ 
+	$lyFile = $md5.".ly";
+	$out = fopen( $wgTmpDirectory."/".$lyFile, "w" );
+	if( $out === false ) {
+		return "<b>$mf (" . wfMsg( "math_bad_tmpdir" ) . ")</b>";
+	}
+	fwrite( $out, $lilypond_code );
+	fclose( $out );
+ 
+	$cmd = $wgLilypond .
+		" -dsafe='#t' -dbackend=eps --png --header=texidoc " .
+		escapeshellarg($lyFile) . " 2>&1";
+ 
+	wfDebug( "Lilypond: $cmd\n" );
+	$oldcwd = getcwd();
+	chdir( $wgTmpDirectory );
+	$contents = exec( $cmd, $output, $ret );
+	chdir( $oldcwd );
+ 
+	if( $ret != 0 ) {
+		return "<br><b>LilyPond error:</b><br><i>"
+		. str_replace( array( $md5, " " ),
+			array( "<b>your code</b>", "&nbsp;" ),
+			nl2br( htmlentities( join( "\n", $output ) ) ) )
+		. "</i><br>";
+	}
+ 
+	if($short_code) {
+		$outputFile = $wgTmpDirectory."/".$md5.".png";
+ 
+		if( !file_exists( $outputFile ) ) {
+			return "<b>$mf (" . wfMsg( "math_image_error" )
+				. ")</b>";
+		}
+ 
+		rename( $outputFile, $wgMathDirectory."/".$md5.".png");
+	}
+ 
+	# remove all temporary files
+	$files = opendir( $wgTmpDirectory );
+	$last_page = 0;
+ 
+	while( false !== ($file = readdir( $files ))) {
+		if( substr( $file, 0, 32 ) != $md5 )
+			continue;
+ 
+		$file_absolute = $wgTmpDirectory . "/" . $file;
+		if( !$short_code && preg_match( '/-page(\d+)\.png$/',
+					$file, $matches ) ) {
+			if($matches[1]>$last_page)
+				$last_page = $matches[1];
+			rename( $file_absolute, $wgMathDirectory . "/" .
+					$md5 . "-" . $matches[1] . ".png" );
+			continue;
+		}
+ 
+                if( preg_match( '/.png$/', $file ) ) {
+			rename( $file_absolute, $wgMathDirectory."/".$md5.".png" );
+			continue;
+                }
+ 
+		if( preg_match( '/.midi$/', $file ) ) {
+			rename( $file_absolute, $wgMathDirectory . "/" .
+					$md5 . ".midi" );
+                        $pre = "<a href=\"".$wgMathPath."/".$md5.".midi\"> " . $wgLilypondPreMidi;
+                        $post = $wgLilypondPostMidi . " </a>";
+			continue;
+		}
+ 
+		if( !is_file( $file_absolute ) )
+			continue;
+		unlink( $file_absolute );
+	}
+	closedir( $files );
+ 
+	if( $short_code ) {
+		if( !file_exists( $wgMathDirectory."/".$md5.".png" ) ) {
+			$errmsg = wfMsg( "math_image_error" );
+			return "<h3>$mf ($errmsg): " .
+				htmlspecialchars($lilypond_code) . "</h3>";
+		}
+	} else {
+                $link .= "<img src=\"".$wgMathPath."/".$md5.".png\" alt=\""
+                . htmlspecialchars( "page " )."\">";
+	}
+ 
+	if( $wgLilypondTrim ) {
+		$imgFile = $wgMathDirectory ."/" .$md5 . ".png";
+		trimImage( $imgFile, $imgFile, 0xFFFFFF );
+	};
+ 
+	if( $wgLilypondBorderX > 0 || $wgLilypondBorderY > 0 ) {
+                $imgFile = $wgMathDirectory ."/" .$md5 . ".png";
+                frameImage( $imgFile, $imgFile, 0xFFFFFF, $wgLilypondBorderX, $wgLilypondBorderY );
+        };
+ 
+	return $pre . $link . $post;
+}
+ 
+function trimImage( $source, $dest, $bgColour )
+{
+  $srcImage = imagecreatefrompng( $source );
+  $width = imagesx( $srcImage );
+  $height = imagesy( $srcImage );
+ 
+  $xmin = 0;
+  $found = false;
+  for( $x = 0; $x < $width && !$found; $x++ ) {
+    for( $y = 0; $y < $height && !$found; $y++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $xmin = $x;
+        $found = true;
+      }
+    }
+  }
+ 
+  $xmax = $xmin;
+  $found = false;
+  for( $x = $width-1; $x > $xmin && !$found; $x-- ) {
+    for( $y = 0; $y < $height && !$found; $y++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $xmax = $x;
+        $found = true;
+      }
+    }
+  }
+ 
+  $ymin = 0;
+  $found = false;
+  for( $y = 0; $y < $height && !$found; $y++ ) {
+    for( $x = 0; $x < $width && !$found; $x++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $ymin = $y;
+        $found = true;
+      }
+    }
+  }
+ 
+  $ymax = $ymin;
+  $found = false;
+  for( $y = $height-1; $y > $ymin && !$found; $y-- ) {
+    for( $x = 0; $x < $width && !$found; $x++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $ymax = $y;
+        $found = true;
+      }
+    }
+  }
+ 
+  $newWidth  = $xmax - $xmin + 1;
+  $newHeight = $ymax - $ymin + 1;
+ 
+  $dstImage = imagecreatetruecolor( $newWidth, $newHeight );
+  imagecopy( $dstImage, $srcImage, 0, 0, $xmin, $ymin, $newWidth, $newHeight );
+  imagepng( $dstImage, $dest );
+}
+ 
+function frameImage( $source, $dest, $bgColour, $borderWidth, $borderHeight )
+{
+  $srcImage = imagecreatefrompng( $source );
+  $width = imagesx( $srcImage );
+  $height = imagesy( $srcImage );
+  $dstImage = imagecreatetruecolor( $width + 2*$borderWidth, $height + 2*$borderHeight );
+  $allocatedBgColour = imagecolorallocate( $dstImage, ($bgColour >> 16) & 0xFF, ($bgColour >> 8) & 0xFF, $bgColour & 0xFF);
+  imagefill( $dstImage, 0, 0, $allocatedBgColour );
+  imagecopy( $dstImage, $srcImage, $borderWidth, $borderHeight, 0, 0, $width, $height );
+  imagepng( $dstImage, $dest );
+}
+
+DHOST ~/music.chicagogrooves.com > echo >> public/banjar/extensions/LilyPond.php 
+-bash: ublic/banjar/extensions/LilyPond.php: No such file or directory
+DHOST ~/music.chicagogrooves.com > echo >> public/banjar/extensions/LilyPond.php 
+DHOST ~/music.chicagogrooves.com > cat public/banjar/extensions/LilyPond.php 
+<?php
+ 
+/*
+ 
+	MediaWiki extension: LilyPond
+	=============================
+ 
+ 
+To activate, edit your LocalSettings.php, add
+ 
+	require_once("$IP/extensions/LilyPond.php");
+ 
+and make sure that the images/ directory is writable.
+ 
+ 
+Example wiki code: <lilypond>\relative c' { c d e f g }</lilypond>
+ 
+If you want to typeset a fragment with clickable midi, use
+ 
+	<lilymidi>...</lilymidi>
+ 
+If you want write a complete lilypond file, use
+ 
+	<lilybook>...</lilybook>
+ 
+ 
+Tested with Lilypond version 2.12.2.
+ 
+*/
+ 
+# User Settings
+
+# The following variables can be set in LocalSettings.php
+# before the line:
+# require_once("$IP/extensions/LilyPond.php");
+
+# You can set the variable $wgLilypond if you want/need to override the
+# path to the Lilypond executable. For example:
+# $wgLilypond = "/home/username/bin/lilypond";
+
+# Add a text link to prompt user to listen to midi, before and/or after
+# the image. Remember line breaks
+# $wgLilypondPreMidi  = "Listen<br>";
+# $wgLilypondPostMidi = "<br>Listen";  
+
+# If you want to avoid trimming the resulting image, set $wgLilypondTrim
+# to false.
+# $wgLilypondTrim = false;
+
+# You can put a white border around the image if you like.
+# $wgLilypondBorderX = 10;
+# $wgLilypondBorderY = 0;
+
+# End User Settings
+
+# Defaulting of user settings
+if( !isset( $wgLilypond ) )
+	$wgLilypond = "PATH=\$PATH:/usr/local/bin /usr/local/bin/lilypond";
+ 
+if( !isset( $wgLilypondPreMidi ) )
+	$wgLilypondPreMidi = "";
+ 
+if( !isset( $wgLilypondPostMidi ) )
+	$wgLilypondPostMidi = "";
+ 
+if( !isset( $wgLilypondTrim ) ) {
+	$wgLilypondTrim = true;
+}
+ 
+if( !isset( $wgLilypondBorderX ) ) {
+	$wgLilypondBorderX = 0;
+}
+ 
+if( !isset( $wgLilypondBorderY ) ) {
+	$wgLilypondBorderY = 0;
+}
+ 
+$wgExtensionFunctions[] = "wfLilyPondExtension";
+ 
+function wfLilyPondExtension() {
+	global $wgParser;
+	$wgParser->setHook( "lilypond", "renderLilyPondFragment" );
+	$wgParser->setHook( "lilymidi", "renderLilyPondMidiFragment" );
+	$wgParser->setHook( "lilybook", "renderLilyPond" );
+}
+ 
+function renderLilyPondMidiFragment( $lilypond_code )
+{
+	return renderLilyPondFragment( $lilypond_code, true );
+}
+ 
+function renderLilyPondFragment( $lilypond_code, $midi=false )
+{
+	return renderLilyPond( "\\header {\n"
+			. "\ttagline = ##f\n"
+			. "}\n"
+			. "\\paper {\n"
+			. "\traggedright = ##t\n"
+			. "\traggedbottom = ##t\n"
+			. "\tindent = 0\mm\n"
+			. "}\n"
+			. "\\score {\n"
+			. $lilypond_code
+			. "\t\\layout { }\n"
+			. ($midi?"\t\\midi { }\n":"")
+			. "}\n", $lilypond_code );
+}
+ 
+function renderLilyPond( $lilypond_code, $short_code=false )
+{
+	global $wgMathPath, $wgMathDirectory, $wgTmpDirectory, $wgLilypond, $wgLilypondPreMidi, $wgLilypondPostMidii, $wgLilypondTrim, $wgLilypondBorderX, $wgLilypondBorderY;
+ 
+	$mf   = wfMsg( "math_failure" );
+	$munk = wfMsg( "math_unknown_error" );
+ 
+	$fname = "renderMusic";
+ 
+	$md5 = md5($lilypond_code);
+ 
+	if( file_exists( $wgMathDirectory."/".$md5.".midi" ) ) {
+                $pre = "<a href=\"".$wgMathPath."/".$md5.".midi\"> " . $wgLilypondPreMidi;
+                $post = $wgLilypondPostMidi . " </a>";
+	} else {
+		$pre = "";
+		$post = "";
+	}
+ 
+	# if short_code is supplied, this is a fragment
+	if( $short_code ) {
+		$link = "<img src=\"".$wgMathPath."/".$md5.".png\" alt=\""
+			.htmlspecialchars( $short_code )."\">";
+ 
+		if( file_exists( "$wgMathDirectory/$md5.png" ) ) {
+			return $pre.$link.$post;
+		}
+	} else {
+		if(  file_exists( "$wgMathDirectory/$md5-1.png" ) ) {
+			$link="";
+			for($i=1; file_exists( $wgMathDirectory . "/" .
+						$md5 . "-" . $i . ".png" );
+					$i++) {
+ 
+				$link .= "<img src=\"" . $wgMathPath . "/" .
+					$md5 . "-" . $i . ".png\" alt=\"" .
+					htmlspecialchars( "page ".$i )."\">";
+			}
+			return $pre.$link.$post;
+		}
+	}
+ 
+	# Ensure that the temp and output dirs are available before continuing.
+	if( !file_exists( $wgMathDirectory ) ) {
+		if( !@mkdir( $wgMathDirectory ) ) {
+			return "<b>$mf (" . wfMsg( "math_bad_output" ) .
+				$wgMathDirectory . ")</b>";
+		}
+	} elseif( !is_dir( $wgMathDirectory ) ||
+			!is_writable( $wgMathDirectory ) ) {
+		return "<b>$mf (" . wfMsg( "math_bad_output" ) . ")</b>";
+	}
+	if( !file_exists( $wgTmpDirectory ) ) {
+		if( !@mkdir( $wgTmpDirectory ) ) {
+			return "<b>$mf (" . wfMsg( "math_bad_tmpdir" )
+				. ")</b>";
+		}
+	} elseif( !is_dir( $wgTmpDirectory ) ||
+			!is_writable( $wgTmpDirectory ) ) {
+		return "<b>$mf (" . wfMsg( "math_bad_tmpdir" ) . ")</b>";
+	}
+ 
+	$lyFile = $md5.".ly";
+	$out = fopen( $wgTmpDirectory."/".$lyFile, "w" );
+	if( $out === false ) {
+		return "<b>$mf (" . wfMsg( "math_bad_tmpdir" ) . ")</b>";
+	}
+	fwrite( $out, $lilypond_code );
+	fclose( $out );
+ 
+	$cmd = $wgLilypond .
+		" -dsafe='#t' -dbackend=eps --png --header=texidoc " .
+		escapeshellarg($lyFile) . " 2>&1";
+ 
+	wfDebug( "Lilypond: $cmd\n" );
+	$oldcwd = getcwd();
+	chdir( $wgTmpDirectory );
+	$contents = exec( $cmd, $output, $ret );
+	chdir( $oldcwd );
+ 
+	if( $ret != 0 ) {
+		return "<br><b>LilyPond error:</b><br><i>"
+		. str_replace( array( $md5, " " ),
+			array( "<b>your code</b>", "&nbsp;" ),
+			nl2br( htmlentities( join( "\n", $output ) ) ) )
+		. "</i><br>";
+	}
+ 
+	if($short_code) {
+		$outputFile = $wgTmpDirectory."/".$md5.".png";
+ 
+		if( !file_exists( $outputFile ) ) {
+			return "<b>$mf (" . wfMsg( "math_image_error" )
+				. ")</b>";
+		}
+ 
+		rename( $outputFile, $wgMathDirectory."/".$md5.".png");
+	}
+ 
+	# remove all temporary files
+	$files = opendir( $wgTmpDirectory );
+	$last_page = 0;
+ 
+	while( false !== ($file = readdir( $files ))) {
+		if( substr( $file, 0, 32 ) != $md5 )
+			continue;
+ 
+		$file_absolute = $wgTmpDirectory . "/" . $file;
+		if( !$short_code && preg_match( '/-page(\d+)\.png$/',
+					$file, $matches ) ) {
+			if($matches[1]>$last_page)
+				$last_page = $matches[1];
+			rename( $file_absolute, $wgMathDirectory . "/" .
+					$md5 . "-" . $matches[1] . ".png" );
+			continue;
+		}
+ 
+                if( preg_match( '/.png$/', $file ) ) {
+			rename( $file_absolute, $wgMathDirectory."/".$md5.".png" );
+			continue;
+                }
+ 
+		if( preg_match( '/.midi$/', $file ) ) {
+			rename( $file_absolute, $wgMathDirectory . "/" .
+					$md5 . ".midi" );
+                        $pre = "<a href=\"".$wgMathPath."/".$md5.".midi\"> " . $wgLilypondPreMidi;
+                        $post = $wgLilypondPostMidi . " </a>";
+			continue;
+		}
+ 
+		if( !is_file( $file_absolute ) )
+			continue;
+		unlink( $file_absolute );
+	}
+	closedir( $files );
+ 
+	if( $short_code ) {
+		if( !file_exists( $wgMathDirectory."/".$md5.".png" ) ) {
+			$errmsg = wfMsg( "math_image_error" );
+			return "<h3>$mf ($errmsg): " .
+				htmlspecialchars($lilypond_code) . "</h3>";
+		}
+	} else {
+                $link .= "<img src=\"".$wgMathPath."/".$md5.".png\" alt=\""
+                . htmlspecialchars( "page " )."\">";
+	}
+ 
+	if( $wgLilypondTrim ) {
+		$imgFile = $wgMathDirectory ."/" .$md5 . ".png";
+		trimImage( $imgFile, $imgFile, 0xFFFFFF );
+	};
+ 
+	if( $wgLilypondBorderX > 0 || $wgLilypondBorderY > 0 ) {
+                $imgFile = $wgMathDirectory ."/" .$md5 . ".png";
+                frameImage( $imgFile, $imgFile, 0xFFFFFF, $wgLilypondBorderX, $wgLilypondBorderY );
+        };
+ 
+	return $pre . $link . $post;
+}
+ 
+function trimImage( $source, $dest, $bgColour )
+{
+  $srcImage = imagecreatefrompng( $source );
+  $width = imagesx( $srcImage );
+  $height = imagesy( $srcImage );
+ 
+  $xmin = 0;
+  $found = false;
+  for( $x = 0; $x < $width && !$found; $x++ ) {
+    for( $y = 0; $y < $height && !$found; $y++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $xmin = $x;
+        $found = true;
+      }
+    }
+  }
+ 
+  $xmax = $xmin;
+  $found = false;
+  for( $x = $width-1; $x > $xmin && !$found; $x-- ) {
+    for( $y = 0; $y < $height && !$found; $y++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $xmax = $x;
+        $found = true;
+      }
+    }
+  }
+ 
+  $ymin = 0;
+  $found = false;
+  for( $y = 0; $y < $height && !$found; $y++ ) {
+    for( $x = 0; $x < $width && !$found; $x++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $ymin = $y;
+        $found = true;
+      }
+    }
+  }
+ 
+  $ymax = $ymin;
+  $found = false;
+  for( $y = $height-1; $y > $ymin && !$found; $y-- ) {
+    for( $x = 0; $x < $width && !$found; $x++ ) {
+      $rgb = imagecolorat( $srcImage, $x, $y );
+      if( $rgb != $bgColour ) {
+        $ymax = $y;
+        $found = true;
+      }
+    }
+  }
+ 
+  $newWidth  = $xmax - $xmin + 1;
+  $newHeight = $ymax - $ymin + 1;
+ 
+  $dstImage = imagecreatetruecolor( $newWidth, $newHeight );
+  imagecopy( $dstImage, $srcImage, 0, 0, $xmin, $ymin, $newWidth, $newHeight );
+  imagepng( $dstImage, $dest );
+}
+ 
+function frameImage( $source, $dest, $bgColour, $borderWidth, $borderHeight )
+{
+  $srcImage = imagecreatefrompng( $source );
+  $width = imagesx( $srcImage );
+  $height = imagesy( $srcImage );
+  $dstImage = imagecreatetruecolor( $width + 2*$borderWidth, $height + 2*$borderHeight );
+  $allocatedBgColour = imagecolorallocate( $dstImage, ($bgColour >> 16) & 0xFF, ($bgColour >> 8) & 0xFF, $bgColour & 0xFF);
+  imagefill( $dstImage, 0, 0, $allocatedBgColour );
+  imagecopy( $dstImage, $srcImage, $borderWidth, $borderHeight, 0, 0, $width, $height );
+  imagepng( $dstImage, $dest );
+}
+
+?>
+DHOST ~/music.chicagogrooves.com > vim public/banjar/LocalSettings.php 
+DHOST ~/music.chicagogrooves.com > vim public/banjar/extensions/LilyPond.php 
+DHOST ~/music.chicagogrooves.com > Read from remote host chicagogrooves.com: Operation timed out
+Connection to chicagogrooves.com closed.
