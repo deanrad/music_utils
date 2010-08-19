@@ -5,6 +5,10 @@
   subtitle = "Outlaw Family Band"
 }
 
+\paper { 
+   indent = 0\cm
+}
+
 myChords = \chordmode {   
   \repeat volta 2{ 
     g1   c1 
