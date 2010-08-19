@@ -1,4 +1,4 @@
-\version "2.8"
+\version "2.12.3"
 \include "english.ly"
 \header {
   title = "Day One - Know Thy Banjar"
@@ -75,7 +75,7 @@ dSeven = \markup \override #'(fret-diagram-details . (
 \fret-diagram-verbose #'( 
   (place-fret 4 9 3)
   (place-fret 3 7 1)
-  (place-fret 2 8 2)
+  (place-fret 2.12.3 2)
   (place-fret 1 9 4)
 )
 
@@ -88,7 +88,7 @@ gSeven = \markup \override #'(fret-diagram-details . (
 %   (place-fret 5 7 3)   
 \fret-diagram-verbose #'( 
 	(place-fret 4 10 3)	(place-fret 3 9 2)
-	(place-fret 2 8 1)	(place-fret 1 10 4)
+	(place-fret 2.12.3 1)	(place-fret 1 10 4)
 )
 
 aSeven = \markup \override #'(fret-diagram-details . (

@@ -1,4 +1,4 @@
-\version "2.8"
+\version "2.12.3"
 \include "english.ly"
 \header {
   title = "Stir It Up"

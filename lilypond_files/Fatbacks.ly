@@ -1,4 +1,4 @@
-\version "2.8"
+\version "2.12.3"
 %{
   Inspired by Gary Chafee drumming systems, but ultimately based on 
   basic combinatorical mathematics, these exercises illustrate each

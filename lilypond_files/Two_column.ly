@@ -1,4 +1,4 @@
-\version "2.8"
+\version "2.12.3"
 %{
    Two_column: this file shows how to layout music in multiple columns.
    Note: the \layout{} block is necessary for the scores to be printed !
