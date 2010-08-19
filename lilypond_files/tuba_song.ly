@@ -1,7 +1,7 @@
 \header{
-	filename = "untitled.ly"
+	filename          = "tuba_song.ly"
 	composer          = "Dean Radcliffe"
-	title             = "Tuba Song"
+	title             = "Example of A Lilypond template for a monophonic piece. Includes midi output with tempo and voice control."
 
 	copyright         = "Creative Commons Attribution-ShareAlike 2.5"
 	maintainer        = "Dean Radcliffe"
