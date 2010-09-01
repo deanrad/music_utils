@@ -41,7 +41,6 @@ myStrumTips = {s8 \downbow s8. \downbow s16 \upbow s16 \downbow s16 \upbow }
   \layout{}
 }
 
-\smaller 
  \markup{ \column { 
  "Chorus:"
  "Walkin' around in the snow, got nowhere to go"
@@ -118,10 +117,20 @@ myStrumTips = {s8 \downbow s8. \downbow s16 \upbow s16 \downbow s16 \upbow }
 
 %% The midi-only score, in order to unfold repeats
 \score {
+  <<
   \new Staff="chords in Bb" {
+    \set Score.tempoWholesPerMinute = #(ly:make-moment 120 4)
   	\set Staff.midiInstrument = #"banjo"
     \unfoldRepeats
     \transpose g' bes \myChords
   }
+  \new Staff="metronome" {
+  	\set Staff.midiInstrument = #"woodblock"
+    r8 
+    \repeat unfold 23{
+      \relative c''{ c4 c4 }
+    }
+  }
+  >>
   \midi{}
 }
