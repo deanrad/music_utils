@@ -5,7 +5,7 @@
 \header {
   title = "Swing Example File for Lilypond"
 }
-\include "swing.ly"
+\include "lib/swing.ly"
 
 \paper { 
    indent = 0\cm
