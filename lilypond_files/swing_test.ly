@@ -17,14 +17,30 @@ groove = \drummode{
   \repeat unfold 1 {sn8 sn4 sn4 sn8 sn8 sn8 }
   \repeat unfold 2 {sn4 sn4}
 }
+grooveSixteenth = \drummode{ 
+  \repeat unfold 2 {sn16 sn sn sn}
+  \repeat unfold 4 { \times 2/3 { sn16 sn sn } }
+  \repeat unfold 1 {sn16 sn8 sn8 sn16 sn sn }
+  \repeat unfold 2 {sn8 sn8}
+}
 
 testMusic =  {
   \swingIt #'"eighth" { \groove }
   \groove
+  
+  \swingIt #'"sixteenth" { \grooveSixteenth }
+  \grooveSixteenth
 }
-annotations = {s1*4^"W/ Swing" s1*4^"No Swing"}
+annotations = {
+  s1*4 ^ "W/ Swing" \break
+  s1*4 ^ "No Swing" \break 
+  s1*4 ^ "W/ 16th Swing" \break
+  s1*4 ^ "No Swing"  
+}
 
-\markup{ \larger{ "Eigth Note Swing (\swing 'eighth')" } }
+\markup{ 
+  \larger{ "Eigth Note Swing" } 
+}
 \score{
   \new DrumStaff = "snare" 
   \with { \remove Time_signature_engraver }{

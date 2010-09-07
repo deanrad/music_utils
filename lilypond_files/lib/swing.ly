@@ -1,13 +1,17 @@
 % See also http://osdir.com/ml/lilypond-devel-gnu/2009-06/msg00008.html
-
+% Example \swingIt #'"eighth" { \groove }
+%
 swingIt = #(define-music-function
   (parser location swingStyle music)  (string? ly:music?)
   (_i "Apply a swing feel to music in @var{argMusic} according to @var{swingStyle}. ")
   (let*
    (
+    ; bookeeping variables - track the current time, etc..
   	(real-elapsed (ly:make-moment 0 1))
   	(evt-duration (ly:make-moment 0 1))
   	(measure-pos  (ly:make-moment 0 1))
+  	
+  	; configuration variables
   	(swing-amt    (ly:make-moment 1 1))
   	(swing-unit   (ly:make-moment 1 4))
    )
@@ -30,8 +34,8 @@ swingIt = #(define-music-function
    	       (begin
 
      	       ; Lengthen eigth notes that start on quarter notes
-     	       (if (and (eq? 0 (ly:moment-main-numerator measure-pos) )
-     		              (eq? 8 (ly:moment-main-denominator evt-duration) ))
+     	       (if (eq? 0 (ly:moment-main-numerator measure-pos))
+
              		(begin
                  ;;;;;;;; Lengthen the first portion of a swing unit by a factor of 4/3 (50 becomes 66.7)
              		 (ly:music-compress mus 
@@ -41,9 +45,12 @@ swingIt = #(define-music-function
              		   (+ 3 (* 6 0) )
              		  ))))
 
-     	       ; shorten eigth notes that start on eigth notes (naive, i know)
-     	       (if (and (eq? 8 (ly:moment-main-denominator evt-duration) )
-               		    (eq? 8 (ly:moment-main-denominator measure-pos) ) )
+     	       ; like saying 'shorten eigth notes that start on eigth notes' 
+     	       (if (and (eq?  (* 2 (ly:moment-main-denominator swing-unit))
+     	                           (ly:moment-main-denominator evt-duration))
+               		    (eq?  (* 2 (ly:moment-main-denominator swing-unit))
+               		               (ly:moment-main-denominator measure-pos) ) )
+               	;
              		(begin
                  ;;;;;;;;; Shrink the second portion of a swing unit by a factor of 2/3 (50 becomes 33.3)
              		 (ly:music-compress mus 
