@@ -12,16 +12,16 @@
 }
 
 groove = \drummode{ 
-  \repeat unfold 2 {sn8 sn8 sn8 sn8}
+  \repeat unfold 2 { sn8 sn8 sn8 sn8 }
   \repeat unfold 4 { \times 2/3 { sn8 sn8 sn8 } }
-  \repeat unfold 1 {sn8 sn4 sn4 sn8 sn8 sn8 }
-  \repeat unfold 2 {sn4 sn4}
+  \repeat unfold 1 { sn8 sn4 sn4 sn8 sn8 sn8 }
+  \repeat unfold 2 { \times 2/3 { sn4 sn8 } sn4 }
 }
 grooveSixteenth = \drummode{ 
-  \repeat unfold 2 {sn16 sn sn sn}
+  \repeat unfold 2 { sn16 sn sn sn }
   \repeat unfold 4 { \times 2/3 { sn16 sn sn } }
-  \repeat unfold 1 {sn16 sn8 sn8 sn16 sn sn }
-  \repeat unfold 2 {sn8 sn8}
+  \repeat unfold 1 { sn16 sn8 sn8 sn16 sn sn }
+  \repeat unfold 2 { sn8 sn8}
 }
 
 testMusic =  {
@@ -34,8 +34,8 @@ testMusic =  {
 annotations = {
   s1*4 ^ "W/ Swing" \break
   s1*4 ^ "No Swing" \break 
-  s1*4 ^ "W/ 16th Swing" \break
-  s1*4 ^ "No Swing"  
+  s1*2 ^ "W/ 16th Swing" \break
+  s1*2 ^ "No Swing"  
 }
 
 \markup{ 
