@@ -2,7 +2,7 @@
 % Example \swingIt #'"eighth" { \groove }
 %
 swingIt = #(define-music-function
-  (parser location swingStyle music)  (string? ly:music?)
+  (parser location swingDiv music)  (number? ly:music?)
   (_i "Apply a swing feel to music in @var{argMusic} according to @var{swingStyle}. ")
   (let*
    (

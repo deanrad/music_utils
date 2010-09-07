@@ -25,10 +25,10 @@ grooveSixteenth = \drummode{
 }
 
 testMusic =  {
-  \swingIt #'"eighth" { \groove }
+  \swingIt #'8 { \groove }
   \groove
   
-  \swingIt #'"sixteenth" { \grooveSixteenth }
+  \swingIt #'16 { \grooveSixteenth }
   \grooveSixteenth
 }
 annotations = {
