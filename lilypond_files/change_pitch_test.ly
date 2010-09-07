@@ -19,15 +19,14 @@
 \include "lib/changePitch.ly"
 \include "lib/articulate.ly"
 \include "lib/commonRhythms.ly"
+\include "lib/swing.ly"
 
-daMusic = \boomChick \chordmode{ c c g g c c g g }
+daMusic = \boomChick \chordmode{ c g c d:7 }
 \score {
   \new Staff {
-    \set Staff.midiMinimumVolume = #0.0
-    \set Staff.midiMaximumVolume = #1.0
     \tempo 4=120
 
-    \repeat unfold 4 \daMusic
+    \repeat percent 2 \daMusic
   }
 
 	\layout { }
@@ -35,11 +34,13 @@ daMusic = \boomChick \chordmode{ c c g g c c g g }
 \score{
   \articulate
   \new Staff {
-    \set Staff.midiMinimumVolume = #0.0
-    \set Staff.midiMaximumVolume = #1.0
-    \tempo 4=120
+    \tempo 4=100
 
-    \repeat unfold 4 \daMusic
+    \repeat unfold 4 
+    \swingIt #'"eigth" {
+      \boomChickMidi \chordmode{ c g c d:7 }
+    }
+      
   }
   \midi{}
 }
