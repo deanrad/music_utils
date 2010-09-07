@@ -1,5 +1,5 @@
 % See also http://osdir.com/ml/lilypond-devel-gnu/2009-06/msg00008.html
-% Example \swingIt #'"eighth" { \groove }
+% Example \swingIt #'8 { \groove }
 %
 swingIt = #(define-music-function
   (parser location swingDiv music)  (number? ly:music?)
@@ -13,7 +13,7 @@ swingIt = #(define-music-function
   	
   	; configuration variables
   	(swing-amt    (ly:make-moment 1 1))
-  	(swing-unit   (ly:make-moment 1 4))
+  	(swing-unit   (ly:make-moment 1 (/ swingDiv 2) ))
    )
 
   ;; music-map yields sequential events from argMusic
@@ -29,8 +29,8 @@ swingIt = #(define-music-function
    	     (set! real-elapsed (ly:moment-add real-elapsed evt-duration))
 
    	     ;; if a note doesn't start or end on an eigth note we'll never adjust it
-   	     (if (or (eq? 8 (ly:moment-main-denominator measure-pos))
-   		           (eq? 8 (ly:moment-main-denominator evt-duration)))
+   	     (if (or (eq? swingDiv (ly:moment-main-denominator measure-pos))
+   		           (eq? swingDiv (ly:moment-main-denominator evt-duration)))
    	       (begin
 
      	       ; Lengthen eigth notes that start on quarter notes
