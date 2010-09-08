@@ -18,11 +18,11 @@ swingIt = #(define-music-function
 
   ;; music-map yields sequential events from argMusic
   ;; into the anonymous function which is its first argument
-  (music-map 
-  (lambda (mus)
-   	(if (and (eq? (ly:music-property mus 'name) 'EventChord)
-   		       (< 0 (ly:moment-main-denominator (ly:music-length mus))))
-   	   (begin
+   (music-map 
+     (lambda (mus)
+     	 (if (and (eq? (ly:music-property mus 'name) 'EventChord)
+     		        (< 0 (ly:moment-main-denominator (ly:music-length mus))))
+     	 (begin
    	     ;; take measurements
    	     (set! evt-duration (ly:music-length mus))
    	     (set! measure-pos (ly:moment-mod real-elapsed swing-unit))
@@ -31,7 +31,7 @@ swingIt = #(define-music-function
    	     ;; if a note doesn't start or end on an eigth note we'll never adjust it
    	     (if (or (eq? swingDiv (ly:moment-main-denominator measure-pos))
    		           (eq? swingDiv (ly:moment-main-denominator evt-duration)))
-   	       (begin
+   	     (begin
 
      	       ; Lengthen eigth notes that start on quarter notes
      	       (if (eq? 0 (ly:moment-main-numerator measure-pos))
@@ -59,14 +59,10 @@ swingIt = #(define-music-function
              		   (+ 2 (* 6 0) ) 
              		   (+ 3 (* 6 0) )
              		  ))))
-   	       )) ;; if swingable
-   	  )) ;; if is a music event
-  mus
-  )
-  music) ;; return the music from music-map
-    
-  ;; return the adjusted music
-  music
+   	     )) ;; if swingable
+     	 ))   ;; if is a music event
+     mus)  ;; return mus from lambda
+  music)  ;; the music is the 2nd arg to music-map
 
   ) ;; end let 
 ) 
