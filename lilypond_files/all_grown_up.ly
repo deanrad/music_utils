@@ -3,28 +3,38 @@
 \header{
   title = "All Grown Up"
   subtitle = "Elvis Costello" 
-  subsubtitle = "in C, chords notated for banjar"
+  subsubtitle = "played in C, chords notated in F"
+	tagline = ##f
+}
+
+\paper{
+  indent = 0\cm         % unindent first line
+  ragged-right = ##t    % allow right side to get 'ragged'
 }
 
 % the chords to the song, written in the key of the recording (D)
 introChords =  \chordmode {
+  \set Score.proportionalNotationDuration = #(ly:make-moment 1 8)
+
      f4.  c4.  g4.  c4.  
      f4.  a4.  g4.  a4.
 }
 verseChords = \chordmode {  
-	 d2.        g           d2.       e:m         a4.:sus4 a4. 
+  \set Score.proportionalNotationDuration = #(ly:make-moment 1 4)
+
+	 d2.        g           d2.       e:m         a4.:sus4 a4. \break
 	 d2.        d4. b4.:m   cis2.:m   
-	 fis:m      fis:m       a         a4.:sus4 a4. \break
+	 fis:m      fis:m       a         a4.:sus4 a4. 
 }
 chorusChords = \chordmode {
 	 d2.  a    g  d
-	 d    fis  g  g:m       
-	 d    fis  g  e:m  e:m  \break
+	 d    fis  g  g:m  \break
+	 d    fis  g  e:m  e:m
 }
 bridgeChords = \chordmode {
-	 b:m  c   d   c   c
+	 b:m  c   d   c4. c8 d4   c2. \break
 	 b:m  d  g  e:m  
-	 e:m  c  a4.:sus4 a4.  \break
+	 e:m  c  a4.:sus4 a4. 
 }
 outroChords = \chordmode {
 	 d2.       a4. g4.      d2.
@@ -79,20 +89,21 @@ myChordChart = {
 }
 
 % Draws the arrangement of the song using repeats
+% TODO - dont use chordmode !
 \score {
-  \new ChordNames \with {
+  \new Staff \with {
     \override BarLine #'bar-size = #4
     \consists Bar_engraver
   }
-  \chordmode {     
-    \repeat volta 2 {
-	    a1 b1 c1
-     } 
-     \alternative { 
-       {d c e}
-       {e a}
-      }
-  }
+  \repeat volta 2 {
+   \mark \markup{ \circle "I" } a1
+   \mark \markup{ \circle "V" } b1
+   \mark \markup{ \circle "C" } c1
+   } 
+   \alternative { 
+     {d c e}
+     {e a}
+    }
 }
 
 %% The midi-only score, in order to unfold repeats

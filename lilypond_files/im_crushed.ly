@@ -10,28 +10,38 @@
 
 	copyright         = ""
 	maintainer        = "Dean Radcliffe"
-	lastupdated       = "2010/08/28"
+	lastupdated       = "2010/09/12"
 }
 
 \version "2.12.3"
+
+\include "predefined-guitar-fretboards.ly"
 
 \paper { 
   indent = 0\cm
 }
 
 myBass = \relative c {
-  \mark "Verse"
+  \mark \markup \box "Verse"
   \repeat volta 2 {
     fis1\2   e\2     dis\2 e,\3
   }
-  \mark "Chorus"
+  \mark \markup \box "Chorus"
   \repeat volta 2 {
     e,    a     b     e,
   }
-  \mark "Bridge"
+  \mark \markup \box "Bridge"
   \repeat volta 2 {
     e    a     d     g
   }
+}
+
+myGuitar = \relative c, {
+  s1*3 s1
+  <e b' e g b e> 
+  <e a e' a c e>
+  <e b' dis a' b e> 
+  <e b' e g b e> 
 }
 
 myChords = \chordmode { 
@@ -71,6 +81,13 @@ myStrum = \repeat unfold 14 \relative c''{ g16 g8 g16 g8 g16 g8 g16 g8 g8 g8 }
 %       \improvisationOn 
 %       \myStrum 
 %     }
+    \new FretBoards {
+      \myGuitar
+    }
+    \new TabStaff {
+      \set TabStaff.instrumentName = # "Acou. Guit."
+      \myGuitar
+    }
     \new TabStaff {
       \set TabStaff.stringTunings = #bass-tuning
       \myBass
@@ -110,13 +127,14 @@ myStrum = \repeat unfold 14 \relative c''{ g16 g8 g16 g8 g16 g8 g16 g8 g8 g8 }
 %% The midi-only score, in order to unfold repeats
 \score {
   <<
-%   \new Staff="track 1 guitar" {
-%     \set Staff.midiInstrument = #"acoustic guitar (steel)"
-%     \unfoldRepeats
-%     \myChords
-%   }
+  \new Staff="track 1 guitar" {
+    \set Staff.midiInstrument = # "acoustic guitar (steel)"
+    \set Score.tempoWholesPerMinute = #(ly:make-moment 72 4)
+    \unfoldRepeats
+    \myGuitar
+  }
   \new Staff="track 2 bass" {
-    \set Staff.midiInstrument = #"electric bass (finger)"
+    \set Staff.midiInstrument = # "electric bass (finger)"
     \set Score.tempoWholesPerMinute = #(ly:make-moment 72 4)
     \unfoldRepeats
     \myBass

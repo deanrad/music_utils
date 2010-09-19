@@ -17,8 +17,7 @@
 \version "2.12.3"
 
 \paper { 
-  % unindent first line
-   indent = 0\cm
+   indent = 0\cm         % unindent first line
 }
 
 %% The primary score first - the midi-only score follows it

@@ -40,8 +40,12 @@ lyricpart = \lyricmode {
     \set TabStaff.stringTunings = #banjo-open-g-tuning
 
     % keep beaming horizontal, and below the staff 
-    \override Beam #'positions = #'(-4.2 . -4.2)
-    \melody
+    \override Beam #'positions = '(-4.2 . -4.2)
+    <<
+      \melody
+      {s16-T s s s-T}
+    >>
+    
   }
 >>
 }

@@ -5,7 +5,9 @@
 % TODO
 % Putting finger numbers in dots on fretboard:
 %   FAIL:   	\override Voice.TextScript #'(fret-diagram-details finger-code) = #'in-dot
-\header { title= "Banjar Fretboard Test File (Experimental)" }
+\header { 
+  title= "Banjar Fretboard Test File (Experimental)"
+}
 experimento = {
        
     <d g b d'>          % explicit pitches notate fine and find the open G
@@ -48,7 +50,7 @@ aMajorAtSeven = { <a\4 cs'\3 e'\2 a'\1> }
   \new Staff{
      \key g \major
 %     \clef "treble_8"
-     \tempo 4 = 126
+%     \tempo 4 = 126
      \experimento
   }
   >>

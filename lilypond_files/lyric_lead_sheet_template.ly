@@ -12,21 +12,23 @@ verseChords = \chordmode{
   d1
 }
 myChords = \chordmode {  
-     % verse 
-     \mark \markup{ \circle "V" }
-     \verseChords
+   % verse 
+   \mark \markup{ \circle "V" }
+   \verseChords
 	 \break
+
 	 % chorus
-     \mark \markup{ \circle "C" }
-	 \break
+   \mark \markup{ \circle "C" }
+   \break
+
 	 % bridge
-     \mark \markup{ \circle "Br" }  
+   \mark \markup{ \circle "Br" }  
 	 \break
+
 	 % outro
      \mark \markup{ \circle "O" }  
  	 % 
  }
-
 
 %% The primary score first - the midi-only score follows it
 \score {
@@ -54,13 +56,13 @@ myChords = \chordmode {
 \markup{
  \column {
  	"Arrgmt:"
-	"  Intro Riff (not notated)"
+	"  Intro"
 	"  V1/Chorus" 
 	"  V2/Chorus" 
 	"  Bridge"
 	"  Chorus"
-	"  V3/Chorus"
-	"  Chorus"
+	"  V3"
+	"  Chorus 2x"
 	"  Outro"
 	\italic " See http://www.elviscostello.info/guitar/mlar.html#all_grown_up"
   }
