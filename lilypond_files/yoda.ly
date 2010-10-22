@@ -1,4 +1,5 @@
 \version "2.12.3"
+\include "predefined-guitar-fretboards.ly"
 
 \header{
   title =       "Yoda (origainlly Lola)"
@@ -88,12 +89,15 @@ myChordChart = {
       \set chordChanges = ##t
       \myChordChart 
     }
+    \new FretBoards {
+      \myChordChart
+    }
     \new Staff \with {
       %% Uncomment the following to automatically tie notes
       % \remove "Note_heads_engraver"
       % \consists "Completion_heads_engraver"
-      \remove "Key_engraver"
-      \remove "Accidental_engraver"
+      % \remove "Key_engraver"
+      % \remove "Accidental_engraver"
     }{ 
       \songTempo
       \songTime
@@ -112,7 +116,7 @@ myChordChart = {
 %% The midi-only score, in order to unfold repeats
 \score {
   \new Staff="chords in E" {
-  	% \set Staff.midiInstrument = #"banjo"
+  	\set Staff.midiInstrument = # "acoustic guitar (steel)"
     \songTempo
 
   	% play out any volta or percent repeats
