@@ -115,10 +115,19 @@ myChordChart = {
     \bold "Verse 3:"
     "One night while having drinks, I met a flirty little minx"
     "With legs that went for miles and miles and miles"
-    "When she said lets hit the hay - I just didnt know whatto say"
+    "When she said lets hit the hay - I just didnt know what to say"
     "Tonight I may go astray - but I'll bring it back"
   }
 }
+% \markup{
+%   \column{ 
+%     \bold "Verse 3:"
+%     "After last weeks show, I met a singer, dontcha know"
+%     "Her voice - just like an angel's made me weep"
+%     "When she said lets hit the hay - I just didnt know whatto say"
+%     "Tonight I'ma go astray - but I'll bring it back"
+%   }
+% }
 \markup{
   \column{ 
     \line{ \bold "Verse extra:" "Bluest verse!"}
