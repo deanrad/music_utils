@@ -3,7 +3,7 @@
 \header{
   title = "Bring My Ding Ding Back"
   subtitle = "Dean Radcliffe" 
-  subsubtitle = "played in D, chords notated in G"
+  % subsubtitle = "Key of G"
 	tagline = ##f
 }
 
@@ -12,7 +12,6 @@
   ragged-right = ##t    % allow right side to get 'ragged'
 }
 
-% the chords to the song, written in the key of the recording (D)
 introChords =  \chordmode {
 
 }
@@ -130,12 +129,16 @@ myChordChart = {
 % }
 \markup{
   \column{ 
-    \line{ \bold "Verse extra:" "Bluest verse!"}
-    "Well just the other day, brought my ding-ding out to play"
+    \line{ \bold "Extra Blue Verse"}
+    "Well now just the other day, brought my ding-ding out to play"
     "Its shiny fireman's helmet all erect"
     "Then I didn't know what to do, when its work was done too soon"
-    "I'll do what gotta do, justo bring it back !"
+    "I'll do what gotta do, justto bring it back !"
   }
+}
+
+\markup{
+  "Arrangement: I - V - C - V - C - Sx3 - C - V - C"
 }
 
 % Draws the arrangement of the song using repeats
@@ -164,8 +167,7 @@ myChordChart = {
 
     \unfoldRepeats
     
-    % lets hear it a step below the recording which was in D
-    \transpose d' c' { \myChordChart }
+    \transpose c' c' { \myChordChart }
   }
   \midi{}
 }
