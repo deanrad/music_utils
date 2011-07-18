@@ -59,7 +59,7 @@ myChordChart = {
     % Use \transpose d' f to emit a banjar part for playing in C
     \new ChordNames { 
       \set chordChanges = ##t
-      \transpose d' f { \myChordChart } 
+      \transpose d' c { \myChordChart } 
     }
     \new Staff \with {
       %% Uncomment the following to automatically tie notes
@@ -68,7 +68,7 @@ myChordChart = {
     }{ 
       \time 6/8
       %\set beatLength = #(ly:make-moment 1 4)  % beam quarter notes
-      \transpose d' c'{ \key d \major \myChordChart }
+      \transpose d' c{ \key c \major \myChordChart }
     }
   >>
   \layout{}
@@ -77,11 +77,11 @@ myChordChart = {
 \markup{
  \column {
  	"Arrgmt:"
-	"  Intro Riff"
+	"  Intro"
 	"  V1/Chorus" 
+	"  Bridge (did i hear you right)"
 	"  V2/Chorus" 
-	"  Bridge"
-	"  Chorus"
+	"  Intro"
 	"  V3/Chorus"
 	"  Intro Riff (fade)"
 	\italic " See http://www.elviscostello.info/guitar/mlar.html#all_grown_up"
