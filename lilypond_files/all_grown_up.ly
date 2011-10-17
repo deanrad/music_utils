@@ -59,7 +59,7 @@ myChordChart = {
     % Use \transpose d' f to emit a banjar part for playing in C
     \new ChordNames { 
       \set chordChanges = ##t
-      \transpose d' c { \myChordChart } 
+      \transpose d' f { \myChordChart } 
     }
     \new Staff \with {
       %% Uncomment the following to automatically tie notes
@@ -68,7 +68,7 @@ myChordChart = {
     }{ 
       \time 6/8
       %\set beatLength = #(ly:make-moment 1 4)  % beam quarter notes
-      \transpose d' c{ \key c \major \myChordChart }
+      \transpose d' f{ \key c \major \myChordChart }
     }
   >>
   \layout{}
