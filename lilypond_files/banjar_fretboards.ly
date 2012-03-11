@@ -2,9 +2,6 @@
 \include "english.ly"
 
 % SEE ALSO banjar_lesson1.ly in this project for better looking stuff
-% TODO
-% Putting finger numbers in dots on fretboard:
-%   FAIL:   	\override Voice.TextScript #'(fret-diagram-details finger-code) = #'in-dot
 \header { 
   title= "Banjar Fretboard Test File (Experimental)"
 }

@@ -1,24 +1,24 @@
-% Lilypond Template
-%    For guitar/banjo/chordal instrument lead sheet creation
-% 
-% Author: Dean Radcliffe
-% Parts: Chord instrument, 
-% Parameters: midi instrument, transposition options, unindenting first line, midi tempo, clef/key/time sig, ...
 \header{
-	composer          = "Dean Radcliffe"
-	title             = "untitled"
+	title             = "Deep Freeze"
+	subtitle          = "Dean Davis Radcliffe"
 
-	copyright         = ""
-	maintainer        = "Dean Radcliffe"
-	lastupdated       = "2010/11/01"
+	copyright         = "Copyright 2012 DDR"
+	lastupdated       = "2012/02/08"
+  tagline = ##f
 }
 
-\version "2.12.3"
 
-\include "lib/swing.ly"
-
-\paper { 
-   indent = 0\cm
+riff = \chordmode {
+  a:m    a:m     a:m    g
 }
 
-\displayMusic \relative c' { c8 c8 \swingIt #'8 { c8 c8 } }
+songParts = \riff
+
+% lyrics %
+
+words = \markup \column{
+    "One"
+    "Two"
+}
+
+\include "lib/common.ly"
