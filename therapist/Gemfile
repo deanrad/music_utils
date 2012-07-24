@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.6'
+gem 'sqlite3'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'spork'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+  gem 'growl'
+end
