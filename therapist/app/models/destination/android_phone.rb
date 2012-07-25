@@ -1,10 +1,8 @@
 class Destination
-  class LocalFolder < Destination
-    attr_accessor :path
+  class AndroidPhone < LocalFolder
     def initialize(path)
-      self.path = path
+      super
     end
-    
     def put_file f, i
       super
     end
