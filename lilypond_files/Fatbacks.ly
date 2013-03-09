@@ -47,19 +47,19 @@
 % the 15 drum parts  - unfortunately, I can't list the BD rhythms out separately
 % and combine them, so I've written each together. 
 drumA = \drummode{ <<cymr8 bd8>> cymr8                   <<cymr8 sn8^> bd8>> cymr8 }
-drumB = \drummode{ cymr16 bd16 cymr8                     <<cymr16 sn16^> >> bd16 cymr8 }
-drumC = \drummode{ cymr8 <<cymr8 bd8>>                   <<cymr8 sn8^> >> <<cymr8 bd8>> }
-drumD = \drummode{ cymr8 cymr16 bd16                     <<cymr8 sn8^> >> cymr16 bd16  }
-drumE = \drummode{ <<cymr16 bd16>> bd16 cymr8            <<cymr16 sn16^> bd16>> bd16 cymr8  }
-drumF = \drummode{ <<cymr8 bd8>> <<cymr8 bd8>>           <<cymr8 sn8^> bd8>> <<cymr8 bd8>>}
-drumG = \drummode{ <<cymr8 bd8>> cymr16 bd16             <<cymr8 sn8^> bd8>> cymr16 bd16}
-drumH = \drummode{ cymr16 bd16 <<cymr8 bd8>>             <<cymr16 sn16^> >> bd16 <<cymr8 bd8>> }
-drumI = \drummode{ cymr16 bd16 cymr16 bd16               <<cymr16 sn16^> >> bd16 cymr16 bd16 }
-drumJ = \drummode{ cymr8 <<cymr16 bd16>> bd16            <<cymr8 sn8^> >> <<cymr16 bd16>> bd16}
-drumK = \drummode{ <<cymr16 bd16>> bd16 <<cymr8 bd8>>    <<cymr16 sn16^> bd16 >> bd16 <<cymr8 bd8>> }
-drumL = \drummode{ <<cymr16 bd16>> bd16 cymr16 bd16      <<cymr16 sn16^> bd16 >> bd16 cymr16 bd16}
+drumB = \drummode{ cymr8 <<cymr8 bd8>>                   <<cymr8 sn8^> >> <<cymr8 bd8>> }
+drumC = \drummode{ cymr8 cymr16 bd16                     <<cymr8 sn8^> >> cymr16 bd16  }
+drumD = \drummode{ cymr16 bd16 cymr8                     <<cymr16 sn16^> >> bd16 cymr8 }
+drumE = \drummode{ <<cymr8 bd8>> cymr16 bd16             <<cymr8 sn8^> bd8>> cymr16 bd16}
+drumF = \drummode{ cymr16 bd16 <<cymr8 bd8>>             <<cymr16 sn16^> >> bd16 <<cymr8 bd8>> }
+drumG = \drummode{ <<cymr16 bd16>> bd16 cymr8            <<cymr16 sn16^> bd16>> bd16 cymr8  }
+drumH = \drummode{ <<cymr8 bd8>> <<cymr8 bd8>>           <<cymr8 sn8^> bd8>> <<cymr8 bd8>>}
+drumI = \drummode{ cymr8 <<cymr16 bd16>> bd16            <<cymr8 sn8^> >> <<cymr16 bd16>> bd16}
+drumJ = \drummode{ cymr16 bd16 cymr16 bd16               <<cymr16 sn16^> >> bd16 cymr16 bd16 }
+drumK = \drummode{ <<cymr16 bd16>> bd16 cymr16 bd16      <<cymr16 sn16^> bd16 >> bd16 cymr16 bd16}
+drumL = \drummode{ hh16 bd16 <<hh16 bd16>> bd16          <<hh16 sn16^> >> bd16 <<hh16 bd16>> bd16 }
 drumM = \drummode{ <<cymr8 bd8>> <<cymr16 bd16>> bd16    <<cymr8 sn8^> bd8>> <<cymr16 bd16>> bd16  }
-drumN = \drummode{ hh16 bd16 <<hh16 bd16>> bd16          <<hh16 sn16^> >> bd16 <<hh16 bd16>> bd16 }
+drumN = \drummode{ <<cymr16 bd16>> bd16 <<cymr8 bd8>>    <<cymr16 sn16^> bd16 >> bd16 <<cymr8 bd8>> }
 drumO = \drummode{ <<hh16 bd16>> bd16 <<hh16 bd16>> bd16 <<hh16 bd16 sn16^> >> bd16 <<hh16 bd16>> bd16 }
 
 % Sets scaling for all staffs in the document
@@ -84,13 +84,13 @@ drumO = \drummode{ <<hh16 bd16>> bd16 <<hh16 bd16>> bd16 <<hh16 bd16 sn16^> >> b
    \score{ \new DrumStaff \with { \override TimeSignature #'stencil = ##f } {
         \time 2/4 \set Score.proportionalNotationDuration = #(ly:make-moment 1 14)
         \set Staff.instrumentName = #"3."
-        \new DrumVoice { \stemUp \repeat unfold 2{ \drumC } } 
+        \new DrumVoice { \override Beam #'positions = #'(5.6 . 5.6) \stemUp \repeat unfold 2{ \drumC } } 
       } \layout{}
    }
    \score{ \new DrumStaff \with { \override TimeSignature #'stencil = ##f } {
         \time 2/4 \set Score.proportionalNotationDuration = #(ly:make-moment 1 14)
         \set Staff.instrumentName = #"5."
-        \new DrumVoice { \stemUp \repeat unfold 2{ \drumE } } 
+        \new DrumVoice { \override Beam #'positions = #'(5.6 . 5.6) \stemUp \repeat unfold 2{ \drumE } } 
       } \layout{}
    }
    \score{ \new DrumStaff \with { \override TimeSignature #'stencil = ##f } {
@@ -104,7 +104,7 @@ drumO = \drummode{ <<hh16 bd16>> bd16 <<hh16 bd16>> bd16 <<hh16 bd16 sn16^> >> b
    \score{ \new DrumStaff \with { \override TimeSignature #'stencil = ##f } {
         \time 2/4 \set Score.proportionalNotationDuration = #(ly:make-moment 1 14)
         \set Staff.instrumentName = #"9."
-        \new DrumVoice { \stemUp \repeat unfold 2{ \drumI } } 
+        \new DrumVoice { \override Beam #'positions = #'(5.6 . 5.6) \stemUp \repeat unfold 2{ \drumI } } 
       } \layout{}
    }
    \score{ \new DrumStaff \with { \override TimeSignature #'stencil = ##f } {
